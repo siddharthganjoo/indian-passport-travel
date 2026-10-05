@@ -116,18 +116,22 @@ export default function AdminPage() {
     setIsCountryModalOpen(true);
   };
 
-  const handleSaveCountry = async (e: React.FormEvent) => {
+  const handleSaveCountry = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!editingCountry || !editingCountry.countryCode || !editingCountry.countryName) {
       showStatus('Country Code and Name are mandatory', 'error');
       return;
     }
+    // "Save & mark verified" stamps today's date in the same save.
+    const submitter = (e.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null;
+    const payload =
+      submitter?.value === 'verify' ? { ...editingCountry, lastVerifiedAt: new Date().toISOString() } : editingCountry;
 
     try {
       const res = await fetch('/api/admin/destinations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(editingCountry),
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
@@ -384,11 +388,11 @@ export default function AdminPage() {
               <Database className="w-5 h-5" />
             </span>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white">
-              Database Maintenance Portal
+              Data admin
             </h1>
           </div>
           <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-            Manually manage visa rules, transit requirements, flight fares, and cheaper multi-leg route hacks. Changes persist permanently to your data store.
+            Review and edit visa rules, transit hubs and route ideas. Open a country, check it against its official website, then use “Save &amp; mark verified”.
           </p>
         </div>
 
@@ -1089,6 +1093,24 @@ export default function AdminPage() {
                 <span className="font-medium text-zinc-700 dark:text-zinc-300">Schengen member (a valid Schengen visa grants entry)</span>
               </label>
 
+              <WaiverEditor
+                value={editingCountry.conditionalUpgrades ?? {}}
+                onChange={(conditionalUpgrades) => setEditingCountry({ ...editingCountry, conditionalUpgrades })}
+              />
+
+              <div>
+                <label className="block font-medium text-zinc-700 dark:text-zinc-300 mb-1">
+                  Source checked (URL of the official page you verified against)
+                </label>
+                <input
+                  type="url"
+                  value={editingCountry.sourceUrl ?? ''}
+                  onChange={(e) => setEditingCountry({ ...editingCountry, sourceUrl: e.target.value || undefined })}
+                  placeholder="https://"
+                  className="w-full p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950"
+                />
+              </div>
+
               {/* Required Documents List */}
               <div>
                 <label className="block font-medium text-zinc-700 dark:text-zinc-300 mb-1">
@@ -1117,10 +1139,20 @@ export default function AdminPage() {
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-lg bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 font-semibold cursor-pointer flex items-center gap-1.5"
+                  value="save"
+                  className="px-4 py-2 rounded-lg border border-zinc-300 dark:border-zinc-700 font-semibold cursor-pointer flex items-center gap-1.5"
                 >
                   <Save className="w-4 h-4" />
-                  <span>Save Destination</span>
+                  <span>Save</span>
+                </button>
+                <button
+                  type="submit"
+                  value="verify"
+                  className="px-5 py-2 rounded-lg bg-black text-white dark:bg-white dark:text-black font-semibold cursor-pointer flex items-center gap-1.5"
+                  title="Save and record that you checked this against the official source today"
+                >
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>Save &amp; mark verified</span>
                 </button>
               </div>
             </form>
@@ -1322,4 +1354,86 @@ function VerifiedCell({ value }: { value?: string | null }) {
   if (status === 'unverified') return <span className="text-xs text-amber-700 dark:text-amber-400">Never</span>;
   const date = new Date(value!).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
   return <span className={cn('text-xs', status === 'stale' ? 'text-amber-700 dark:text-amber-400' : 'text-emerald-700 dark:text-emerald-400')}>{date}</span>;
+}
+
+const WAIVER_ROWS: [string, 'validUSVisaHolder' | 'validSchengenHolder' | 'validUKVisaHolder'][] = [
+  ['US visa holders', 'validUSVisaHolder'],
+  ['Schengen visa holders', 'validSchengenHolder'],
+  ['UK visa holders', 'validUKVisaHolder'],
+];
+
+/** Edit the easier-entry rules for travellers who already hold a US, Schengen or UK visa. */
+function WaiverEditor({
+  value,
+  onChange,
+}: {
+  value: CountryVisaProfile['conditionalUpgrades'];
+  onChange: (v: CountryVisaProfile['conditionalUpgrades']) => void;
+}) {
+  const input = 'w-full p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950';
+  return (
+    <fieldset className="space-y-3 rounded-xl border border-zinc-200 dark:border-zinc-800 p-3">
+      <legend className="px-1 font-medium text-zinc-700 dark:text-zinc-300">Easier entry for holders of other visas</legend>
+      {WAIVER_ROWS.map(([label, key]) => {
+        const rule = value[key];
+        const set = (patch: Partial<NonNullable<typeof rule>>) =>
+          onChange({
+            ...value,
+            [key]: { eligibleCategory: 'evisa', allowedStayDays: 30, conditionNotes: '', ...rule, ...patch },
+          });
+        return (
+          <div key={key} className="grid gap-2 sm:grid-cols-[9rem_10rem_5rem_5rem_1fr] sm:items-center">
+            <span className="font-medium">{label}</span>
+            <select
+              aria-label={`${label}: entry type`}
+              value={rule?.eligibleCategory ?? ''}
+              onChange={(e) => {
+                if (!e.target.value) {
+                  const next = { ...value };
+                  delete next[key];
+                  onChange(next);
+                } else set({ eligibleCategory: e.target.value as 'visa_free' | 'evisa' | 'voa' });
+              }}
+              className={input}
+            >
+              <option value="">No waiver</option>
+              <option value="visa_free">Visa-free</option>
+              <option value="voa">Visa on arrival</option>
+              <option value="evisa">eVisa</option>
+            </select>
+            {rule && (
+              <>
+                <input
+                  type="number"
+                  min={0}
+                  aria-label={`${label}: stay days`}
+                  title="Stay (days)"
+                  value={rule.allowedStayDays}
+                  onChange={(e) => set({ allowedStayDays: Number(e.target.value) || 0 })}
+                  className={input}
+                />
+                <input
+                  type="number"
+                  min={0}
+                  aria-label={`${label}: fee in USD`}
+                  title="Fee (USD)"
+                  value={rule.specialFeeUsd ?? ''}
+                  onChange={(e) => set({ specialFeeUsd: e.target.value === '' ? undefined : Number(e.target.value) })}
+                  className={input}
+                />
+                <input
+                  aria-label={`${label}: conditions`}
+                  placeholder="Conditions (e.g. visa must be multiple-entry and used once)"
+                  value={rule.conditionNotes}
+                  onChange={(e) => set({ conditionNotes: e.target.value })}
+                  className={input}
+                />
+              </>
+            )}
+          </div>
+        );
+      })}
+      <p className="text-[11px] text-zinc-500">Columns: entry type · stay (days) · fee (USD, blank = standard fee) · conditions.</p>
+    </fieldset>
+  );
 }

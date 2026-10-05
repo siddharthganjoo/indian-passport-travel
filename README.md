@@ -36,6 +36,10 @@ data/                 destinations.json (193 countries), transit-hubs.json, smar
 
 The planner's rules (minimum self-transfer time, maximum detour, layover cost, apply-by buffers) are in `RULES` in `lib/route-engine.ts`.
 
+## Data & maintenance
+
+Where the data lives (JSON files now, Supabase when live) and how to keep it accurate: **[docs/DATABASE.md](docs/DATABASE.md)**.
+
 ## Getting started
 
 ```bash

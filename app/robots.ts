@@ -1,14 +1,9 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { SITE } from '@/lib/site';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://indianpassporttravel.com';
-
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/api/'],
-    },
-    sitemap: `${baseUrl}/sitemap.xml`,
+    rules: { userAgent: '*', allow: '/', disallow: ['/api/', '/admin', '/plan'] },
+    sitemap: `${SITE.url}/sitemap.xml`,
   };
 }

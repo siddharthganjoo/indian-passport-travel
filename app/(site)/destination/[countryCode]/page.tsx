@@ -3,15 +3,17 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExternalLink } from 'lucide-react';
 import { getAllDestinations, getDestinationByCode, getSmartRoutesForDestination } from '@/lib/db';
-import { resolveVisaRequirements, verificationStatus } from '@/lib/visa-engine';
+import { formatProcessing, resolveVisaRequirements, verificationStatus } from '@/lib/visa-engine';
 import { GENERIC_STEPS } from '@/lib/visa-content';
 import { getSearchOptions } from '@/lib/search-options';
 import { EASE_FILL, buildPlanUrl, cn, flagEmoji, formatDay, formatInr, getVisaCategoryLabel, visaCategoryDot } from '@/lib/utils';
 import { RouteMap } from '@/components/maps/route-map';
 import { airportDistanceKm, getAirport } from '@/lib/geo';
+import { Faq, type FaqItem } from '@/components/content/faq';
+import { SITE } from '@/lib/site';
 import { DocumentChecklist } from '@/components/kokonut/document-checklist';
 import { TripSearchForm } from '@/components/plan/trip-search-form';
-import type { ConditionalPassRuleDetails, HeldVisa } from '@/types/visa';
+import type { ConditionalPassRuleDetails, CountryVisaProfile, HeldVisa, ResolvedVisaRequirements } from '@/types/visa';
 
 export const revalidate = 300;
 export const dynamicParams = true;
@@ -30,8 +32,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!country) return { title: 'Destination not found' };
   const category = getVisaCategoryLabel(country.defaultCategory);
   return {
-    title: `${country.countryName} visa for Indians — ${category}`,
-    description: `${country.countryName} entry rules for Indian passport holders: ${category.toLowerCase()}, ${country.stayDurationDays}-day stay, fees, documents and how to apply. Plus the cheapest ways to fly there from India.`,
+    title: `${country.countryName} visa for Indians: requirements, fees & processing`,
+    description: `${country.countryName} entry rules for Indian passport holders: ${category.toLowerCase()}, ${country.stayDurationDays}-day stay, fees, documents and how to apply — plus the cheapest ways to fly there from India.`,
+    alternates: { canonical: `/destination/${country.countryCode}` },
   };
 }
 
@@ -46,7 +49,11 @@ export default async function DestinationPage({ params }: PageProps) {
   const country = await getDestinationByCode(countryCode);
   if (!country) notFound();
 
-  const [routes, options] = await Promise.all([getSmartRoutesForDestination(country.countryCode), getSearchOptions()]);
+  const [routes, options, all] = await Promise.all([
+    getSmartRoutesForDestination(country.countryCode),
+    getSearchOptions(),
+    getAllDestinations(),
+  ]);
   const visa = resolveVisaRequirements(country, { hasUSVisa: false, hasSchengen: false, hasUKVisa: false });
   const status = verificationStatus(country.lastVerifiedAt);
   const waivers = WAIVER_ROWS.map(([held, key]) => [held, country.conditionalUpgrades?.[key]] as const).filter(
@@ -219,10 +226,101 @@ export default async function DestinationPage({ params }: PageProps) {
         )}
       </section>
 
+      <Faq items={countryFaq(country, visa, waivers)} heading={`${country.countryName} visa FAQ`} />
+
+      <SimilarDestinations current={country} all={all} />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Visas', item: `${SITE.url}/visas` },
+              { '@type': 'ListItem', position: 2, name: country.countryName, item: `${SITE.url}/destination/${country.countryCode}` },
+            ],
+          }).replace(/</g, '\\u003c'),
+        }}
+      />
+
       <p className="text-xs text-zinc-500 leading-relaxed max-w-3xl">
         Immigration officers decide entry at the border. Carry a passport valid for 6+ months with two blank pages, your
         return ticket, accommodation details and proof of funds.
       </p>
     </div>
+  );
+}
+
+const EASE_RANK: Record<string, number> = { visa_free: 0, voa: 1, evisa: 2, sticker_required: 3 };
+
+/** Plain-language FAQ generated from the country's data (also emitted as FAQPage structured data). */
+function countryFaq(
+  c: CountryVisaProfile,
+  visa: ResolvedVisaRequirements,
+  waivers: readonly (readonly [HeldVisa, ConditionalPassRuleDetails])[]
+): FaqItem[] {
+  const name = c.countryName;
+  const fee = visa.feeInr ? `about ${formatInr(visa.feeInr)}${c.baseFeeUsd ? ` (US$${c.baseFeeUsd})` : ''}` : 'free';
+  const needs: Record<string, string> = {
+    visa_free: `No. Indian passport holders can visit ${name} without a visa for up to ${visa.stayDays} days for tourism. Carry a return ticket, hotel bookings and proof of funds.`,
+    voa: `Indian passport holders get a visa on arrival in ${name} for up to ${visa.stayDays} days — no application before you fly. The fee is ${fee}.`,
+    evisa: `Yes, but you can apply online. Indian passport holders need an eVisa for ${name}, allowing up to ${visa.stayDays} days. The fee is ${fee}.`,
+    sticker_required: `Yes. Indian passport holders must apply for a visa at the ${name} embassy or its visa centre before travelling. The fee is ${fee}.`,
+  };
+  const items: FaqItem[] = [
+    { q: `Do Indians need a visa for ${name}?`, a: needs[c.defaultCategory] },
+    { q: `How much does a ${name} visa cost for Indians?`, a: visa.feeInr ? `The fee is ${fee}. Service or centre charges may be extra.` : `There is no visa fee for Indian passport holders.` },
+    {
+      q: `How long does ${name} visa processing take?`,
+      a: c.processingTimeDays.max === 0 ? 'There is nothing to process in advance — entry is granted at the border.' : `Usually ${formatProcessing(c.processingTimeDays)}. Apply well before you book non-refundable travel.`,
+    },
+  ];
+  if (waivers.length) {
+    items.push({
+      q: `Can I enter ${name} with a US, UK or Schengen visa?`,
+      a: waivers
+        .map(([held, w]) => `With a valid ${held} visa: ${getVisaCategoryLabel(w.eligibleCategory).toLowerCase()} for up to ${w.allowedStayDays} days.`)
+        .join(' ') + ' Conditions apply — the visa usually must be valid and sometimes already used.',
+    });
+  }
+  if (c.requiredDocuments.length) {
+    items.push({ q: `What documents do Indians need for ${name}?`, a: c.requiredDocuments.slice(0, 6).join('; ') + '.' });
+  }
+  return items;
+}
+
+/** Same-region countries, easiest entry first. */
+function SimilarDestinations({ current, all }: { current: CountryVisaProfile; all: CountryVisaProfile[] }) {
+  const picks = all
+    .filter((c) => c.continent === current.continent && c.countryCode !== current.countryCode)
+    .sort((a, b) => EASE_RANK[a.defaultCategory] - EASE_RANK[b.defaultCategory] || a.countryName.localeCompare(b.countryName))
+    .slice(0, 6);
+  if (!picks.length) return null;
+  return (
+    <section aria-labelledby="similar" className="space-y-4">
+      <h2 id="similar" className="font-display text-2xl sm:text-3xl font-bold tracking-tight">
+        More in {current.continent}
+      </h2>
+      <ul className="grid gap-3 grid-cols-2 sm:grid-cols-3">
+        {picks.map((c) => (
+          <li key={c.countryCode}>
+            <Link
+              href={`/destination/${c.countryCode}`}
+              className="flex items-center gap-3 rounded-xl border border-zinc-200 dark:border-zinc-800 p-4 hover:border-black dark:hover:border-white transition-colors"
+            >
+              <span className="text-2xl leading-none" aria-hidden>{flagEmoji(c.countryCode)}</span>
+              <span className="min-w-0">
+                <span className="block font-medium truncate">{c.countryName}</span>
+                <span className="flex items-center gap-1.5 text-sm text-zinc-500">
+                  <span className={cn('w-2 h-2 rounded-full', visaCategoryDot(c.defaultCategory))} aria-hidden />
+                  {getVisaCategoryLabel(c.defaultCategory)}
+                </span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

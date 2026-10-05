@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Inter_Tight } from 'next/font/google';
 import './globals.css';
+import { SITE } from '@/lib/site';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { CookieConsent } from '@/components/kokonut/cookie-consent';
@@ -9,7 +10,7 @@ const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-int
 const interTight = Inter_Tight({ subsets: ['latin'], weight: ['600', '700', '800'], display: 'swap', variable: '--font-inter-tight' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://jugo.travel'),
+  metadataBase: new URL(SITE.url),
   title: {
     default: 'jugo — cheaper flights abroad, visas sorted',
     template: '%s · jugo',

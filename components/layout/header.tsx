@@ -13,6 +13,10 @@ const NAV = [
   { href: '/transit-hubs', label: 'Transit hubs' },
   { href: '/routes', label: 'Route ideas' },
 ];
+const MOBILE_EXTRA = [
+  { href: '/help', label: 'Help' },
+  { href: '/about', label: 'About' },
+];
 
 export function Header() {
   const pathname = usePathname();
@@ -46,7 +50,9 @@ export function Header() {
           ))}
         </nav>
 
-        <span className="hidden md:inline text-sm text-zinc-400">For Indian passports</span>
+        <Link href="/help" className="hidden md:inline-flex items-center h-9 px-3.5 rounded-full text-sm font-medium hover:bg-white/15">
+          Help
+        </Link>
 
         <button
           type="button"
@@ -61,7 +67,7 @@ export function Header() {
 
       {open && (
         <nav className="md:hidden border-t border-white/10 px-4 pb-6 pt-2" aria-label="Main">
-          {NAV.map((item) => (
+          {[...NAV, ...MOBILE_EXTRA].map((item) => (
             <Link
               key={item.href}
               href={item.href}

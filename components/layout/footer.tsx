@@ -15,11 +15,20 @@ const COLUMNS = [
     links: [
       { href: '/visas', label: 'All countries' },
       { href: '/visas?category=visa_free', label: 'Visa-free' },
+      { href: '/visas?category=voa', label: 'Visa on arrival' },
       { href: '/visas?category=evisa', label: 'eVisa' },
     ],
   },
   {
-    title: 'jugo',
+    title: 'Company',
+    links: [
+      { href: '/about', label: 'About' },
+      { href: '/how-we-verify', label: 'How we verify' },
+      { href: '/help', label: 'Help & FAQ' },
+    ],
+  },
+  {
+    title: 'Legal',
     links: [
       { href: '/privacy', label: 'Privacy' },
       { href: '/terms', label: 'Terms' },
@@ -31,8 +40,8 @@ export function Footer() {
   return (
     <footer className="on-dark bg-black text-white mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-10">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
-          <div className="space-y-4">
+        <div className="grid gap-10 grid-cols-2 md:grid-cols-[1.4fr_repeat(4,1fr)]">
+          <div className="col-span-2 md:col-span-1 space-y-4">
             <Link href="/" className="text-[34px] inline-block" aria-label="jugo home">
               <Logo />
             </Link>
@@ -54,7 +63,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col gap-2 sm:flex-row sm:justify-between text-xs text-zinc-500">
-          <p>jugo is not a visa agency or airline. Rules change — always confirm on official government websites.</p>
+          <p>jugo is not a visa agency or airline. Rules change — always confirm on official government websites. Some booking links are affiliate links.</p>
           <p>© {new Date().getFullYear()} jugo</p>
         </div>
       </div>

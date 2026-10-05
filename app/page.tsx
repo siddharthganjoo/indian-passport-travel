@@ -73,6 +73,23 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Trust strip — facts only */}
+      <section aria-label="Why trust jugo" className="border-b border-zinc-200 dark:border-zinc-800">
+        <ul className={`${container} grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-5 py-8 text-sm`}>
+          {[
+            [String(countries.length), 'countries with visa rules for Indian passports'],
+            [String(hubs.length), 'transit hubs checked on every search'],
+            ['Official', 'every rule links to its government source'],
+            ['No sign-up', 'and we never ask for passport details'],
+          ].map(([big, small]) => (
+            <li key={small}>
+              <span className="block font-display text-2xl font-bold tracking-tight">{big}</span>
+              <span className="text-zinc-600 dark:text-zinc-400">{small}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Passport map */}
       <section className={`${container} py-16 sm:py-24`} aria-labelledby="passport">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_2fr]">

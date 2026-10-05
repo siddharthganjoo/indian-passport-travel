@@ -1,111 +1,72 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, AlertTriangle, ShieldAlert, Scale, CheckCircle } from 'lucide-react';
+import { PageHeader, Prose } from '@/components/content/page-header';
+import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions & Legal Liability Disclaimer | jugo',
-  description:
-    'Terms of service, immigration disclaimer, and limitation of liability for jugo Indian passport metasearch platform.',
+  title: 'Terms of use',
+  description: 'The terms for using jugo, including how visa information and flight prices should be relied on.',
 };
 
 export default function TermsPage() {
   return (
-    <div className="max-w-3xl mx-auto space-y-8 pb-16">
-      {/* Back button */}
-      <div>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-xs font-medium text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to Home</span>
-        </Link>
-      </div>
-
-      <div className="space-y-3 border-b border-zinc-200 dark:border-zinc-800 pb-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 text-xs font-mono">
-          <AlertTriangle className="w-3.5 h-3.5" />
-          <span>Informational Discovery Platform • Legal Terms</span>
-        </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-950 dark:text-white">
-          Terms & Conditions & Regulatory Disclaimers
-        </h1>
-        <p className="text-xs font-mono text-zinc-500">
-          Last revised: September 2026 • Mandatory Traveler Acknowledgment
-        </p>
-      </div>
-
-      {/* Prominent High-Contrast Legal Notice Box */}
-      <div className="p-5 rounded-2xl bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 space-y-3 shadow-md">
-        <div className="flex items-center gap-2">
-          <ShieldAlert className="w-5 h-5 text-amber-400 dark:text-amber-600 shrink-0" />
-          <h2 className="text-sm font-bold uppercase tracking-wider font-mono">
-            Mandatory Travel & Immigration Notice
-          </h2>
-        </div>
-        <p className="text-xs sm:text-sm leading-relaxed text-zinc-300 dark:text-zinc-800">
-          jugo is an independent metasearch search and informational discovery tool. <strong>We are not a visa processing agency, immigration consultant, travel agency, or diplomatic mission.</strong> All immigration policies, visa fees, permitted lengths of stay, bilateral waivers, and conditional relaxations are volatile and subject to unilateral revision by sovereign border control authorities without advance notice.
-        </p>
-      </div>
-
-      {/* Structured Sections */}
-      <div className="prose prose-zinc dark:prose-invert max-w-none text-xs sm:text-sm space-y-6 leading-relaxed text-zinc-700 dark:text-zinc-300">
-        <section className="space-y-2">
-          <h2 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-            <Scale className="w-4 h-4 text-zinc-900 dark:text-white" />
-            1. Zero Liability for Denied Boarding or Entry
-          </h2>
+    <div className="space-y-12">
+      <PageHeader eyebrow={`Last updated ${SITE.lastLegalUpdate}`} title="Terms of use" />
+      <Prose>
+        <section>
+          <h2>What jugo is</h2>
           <p>
-            You acknowledge and agree that under no circumstances shall jugo, its founders, operators, or contributors be held liable for any direct, indirect, consequential, or punitive damages arising from:
-          </p>
-          <ul className="list-disc pl-5 space-y-1.5 text-xs text-zinc-600 dark:text-zinc-400">
-            <li>Denied boarding by commercial airlines or charter operators.</li>
-            <li>Denied entry, detention, deportation, or penalties imposed by immigration officers at any border checkpoint.</li>
-            <li>Inaccuracies, discrepancies, or recent changes in sovereign immigration regulations, fees, or document requirements.</li>
-            <li>Financial losses from cancelled flights, non-refundable lodging, or trip interruptions.</li>
-          </ul>
-        </section>
-
-        <section className="space-y-2">
-          <h2 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-zinc-900 dark:text-white" />
-            2. Traveler Responsibility & Due Diligence
-          </h2>
-          <p>
-            It remains the sole legal responsibility of the traveler holding a Republic of India passport to verify all visa entry prerequisites directly with the relevant embassy, consulate, or official government immigration portal prior to booking travel or commencing international journeys.
-          </p>
-          <p>
-            Travelers must ensure their passport satisfies minimum validity rules (typically 6 months from arrival), possesses sufficient blank visa endorsement pages, and that all secondary qualifying visas (US, Schengen, UK) are physically valid, unexpired, and fulfill national waiver conditions.
+            jugo is an information and search service. We are not an airline, travel agent or visa agency, and we don&apos;t
+            sell tickets or visas. Bookings are made with the partner you choose, under their terms.
           </p>
         </section>
 
-        <section className="space-y-2">
-          <h2 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white">
-            3. Third-Party Flight Search & Affiliate Links
-          </h2>
+        <section>
+          <h2>Visa information</h2>
           <p>
-            Flight aggregations, fare snapshots, and flight pricing data are retrieved from partners including Amadeus, Duffel, and public travel indexes. Flight prices fluctuate dynamically based on seat inventory, airline fare classes, and baggage policies. Clicking outbound links redirects you to third-party booking systems (such as Skyscanner or airline portals). jugo executes no ticket issuance and accepts no payment for bookings.
+            Visa and transit rules are set by governments and can change without notice. We show when each rule was last
+            checked and link to the official source (see <Link href="/how-we-verify">how we verify</Link>). Entry is always
+            at the discretion of immigration officers and airlines. You are responsible for confirming requirements with the
+            official source before you book and travel.
           </p>
         </section>
 
-        <section className="space-y-2">
-          <h2 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white">
-            4. Permissible Use & Rate Limiting
-          </h2>
+        <section>
+          <h2>Prices and routes</h2>
           <p>
-            Automated scraping, programmatic extraction, or malicious denial-of-service queries against jugo APIs are strictly prohibited. API endpoints are bounded by automated rate-limiting policies (20 requests per minute per IP).
+            Fares come from partners and may be cached; the price on the booking site is final. Bag fees, visa fees and
+            layover costs are estimates. Self-transfer routes use separate tickets: if one flight is delayed or cancelled,
+            the other airline is not obliged to help, and missed connections are at your own risk.
           </p>
         </section>
 
-        <section className="space-y-2">
-          <h2 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white">
-            5. Governing Law & Dispute Jurisdiction
-          </h2>
+        <section>
+          <h2>Affiliate links</h2>
           <p>
-            These Terms shall be construed and governed in accordance with the substantive laws of the Republic of India. Any legal dispute or proceeding arising out of or related to these Terms shall be subject to the exclusive jurisdiction of the courts of New Delhi, India.
+            Some links to booking partners are affiliate links; we may earn a commission at no extra cost to you. This does
+            not affect how routes are ranked.
           </p>
         </section>
-      </div>
+
+        <section>
+          <h2>Liability</h2>
+          <p>
+            jugo is provided “as is”. To the extent permitted by law, we are not liable for losses arising from reliance on
+            the information shown, denied boarding or entry, missed connections, or partner services. Nothing in these terms
+            limits rights you have under Indian consumer law.
+          </p>
+        </section>
+
+        <section>
+          <h2>Governing law</h2>
+          <p>These terms are governed by the laws of India.</p>
+          {SITE.supportEmail && (
+            <p>
+              Questions: <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a>
+            </p>
+          )}
+        </section>
+      </Prose>
     </div>
   );
 }
