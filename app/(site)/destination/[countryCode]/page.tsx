@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExternalLink } from 'lucide-react';
 import { getAllDestinations, getDestinationByCode, getSmartRoutesForDestination } from '@/lib/db';
-import { formatProcessing, resolveVisaRequirements, verificationStatus } from '@/lib/visa-engine';
+import { formatProcessing, resolveVisaRequirements } from '@/lib/visa-engine';
 import { GENERIC_STEPS } from '@/lib/visa-content';
 import { getSearchOptions } from '@/lib/search-options';
-import { EASE_FILL, buildPlanUrl, cn, flagEmoji, formatDay, formatInr, getVisaCategoryLabel, visaCategoryDot } from '@/lib/utils';
+import { EASE_FILL, buildPlanUrl, cn, flagEmoji, formatInr, getVisaCategoryLabel, visaCategoryDot } from '@/lib/utils';
 import { RouteMap } from '@/components/maps/route-map';
 import { airportDistanceKm, getAirport } from '@/lib/geo';
 import { Faq, type FaqItem } from '@/components/content/faq';
 import { SITE } from '@/lib/site';
+import { DataStatus } from '@/components/visa/data-status';
 import { DocumentChecklist } from '@/components/kokonut/document-checklist';
 import { TripSearchForm } from '@/components/plan/trip-search-form';
 import type { ConditionalPassRuleDetails, CountryVisaProfile, HeldVisa, ResolvedVisaRequirements } from '@/types/visa';
@@ -55,7 +56,6 @@ export default async function DestinationPage({ params }: PageProps) {
     getAllDestinations(),
   ]);
   const visa = resolveVisaRequirements(country, { hasUSVisa: false, hasSchengen: false, hasUKVisa: false });
-  const status = verificationStatus(country.lastVerifiedAt);
   const waivers = WAIVER_ROWS.map(([held, key]) => [held, country.conditionalUpgrades?.[key]] as const).filter(
     (w): w is readonly [HeldVisa, ConditionalPassRuleDetails] => !!w[1]
   );
@@ -140,14 +140,8 @@ export default async function DestinationPage({ params }: PageProps) {
               Official visa website <ExternalLink className="w-3.5 h-3.5" aria-hidden />
             </a>
           )}
-          <span className={status === 'verified' ? 'text-zinc-500' : 'text-amber-700 dark:text-amber-400'}>
-            {status === 'verified'
-              ? `Checked ${formatDay(country.lastVerifiedAt!)}`
-              : status === 'stale'
-                ? `Last checked ${formatDay(country.lastVerifiedAt!)} — may be out of date`
-                : 'Not yet verified by our team — confirm on the official website'}
-          </span>
         </div>
+        <DataStatus lastVerifiedAt={country.lastVerifiedAt} research={country.research} />
       </div>
 
       {waivers.length > 0 && (

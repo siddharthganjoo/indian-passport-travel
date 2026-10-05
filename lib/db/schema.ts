@@ -1,7 +1,7 @@
 import { boolean, integer, jsonb, pgTable, text, timestamp, varchar, index } from 'drizzle-orm/pg-core';
 import type { ConditionalPassRules, MonthlyFareTrend } from '@/types/visa';
 import type { RouteLeg, TransitVisaRequirement, LayoverNecessities } from '@/types/routes';
-import type { HeldVisa } from '@/types/visa';
+import type { HeldVisa, ResearchRecord } from '@/types/visa';
 
 /** Visa rules for Indian passport holders, one row per destination country. */
 export const countries = pgTable(
@@ -34,6 +34,7 @@ export const countries = pgTable(
     sampleLowFareInr: integer('sample_low_fare_inr'),
     fareTrends: jsonb('fare_trends').$type<MonthlyFareTrend[]>(),
 
+    research: jsonb('research').$type<ResearchRecord>(),
     lastVerifiedAt: timestamp('last_verified_at', { withTimezone: true }),
     updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
   },
@@ -56,6 +57,7 @@ export const transitHubs = pgTable('transit_hubs', {
   terminalChangeRequiresVisa: boolean('terminal_change_requires_visa').notNull().default(false),
   /** Display-only fields (country name, flag, guides, warnings, perks...). */
   profile: jsonb('profile').$type<HubDisplayProfile>().notNull(),
+  research: jsonb('research').$type<ResearchRecord>(),
   lastVerifiedAt: timestamp('last_verified_at', { withTimezone: true }),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 });

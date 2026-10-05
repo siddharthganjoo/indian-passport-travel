@@ -1,4 +1,4 @@
-import { HeldVisa } from './visa';
+import { HeldVisa, ResearchRecord } from './visa';
 
 export interface RouteLeg {
   fromIata: string;
@@ -95,5 +95,6 @@ export interface TransitHubProfile {
   stepByStepGuide: string[];
   officialPortalUrl: string;
   lastVerifiedAt?: string | null;
+  research?: ResearchRecord;
 }
 

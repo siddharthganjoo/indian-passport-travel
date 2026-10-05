@@ -42,12 +42,12 @@ describe('planTrip — self-transfer visa logic', () => {
 
     const cabinTurkey = ist.modes.cabin.visas.find((v) => v.countryCode === 'TR')!;
     expect(cabinTurkey.requirement).toBe('airside_ok');
-    expect(ist.modes.cabin.total).toBe(65_000 + 6_800); // fares + Brazil eVisa
+    expect(ist.modes.cabin.total).toBe(65_000 + 8_000); // fares + Brazil embassy visa
 
     const checkedTurkey = ist.modes.checked.visas.find((v) => v.countryCode === 'TR')!;
     expect(checkedTurkey.requirement).toBe('sticker_required');
-    // fares + IndiGo bag (4,550km → medium band ₹4,500) + Turkey sticker + Brazil eVisa
-    expect(ist.modes.checked.total).toBe(65_000 + 4_500 + 15_480 + 6_800);
+    // fares + IndiGo bag (4,550km → medium band ₹4,500) + Turkey sticker + Brazil embassy visa
+    expect(ist.modes.checked.total).toBe(65_000 + 4_500 + 15_480 + 8_000);
   });
 
   it('a US visa turns the Turkish stop into a cheap eVisa', async () => {
@@ -63,7 +63,7 @@ describe('planTrip — self-transfer visa logic', () => {
     const single = result.options.find((o) => o.kind === 'single_ticket')!;
     expect(single.modes.cabin.visas.map((v) => [v.countryCode, v.requirement])).toEqual([
       ['AE', 'airside_ok'],
-      ['BR', 'evisa'],
+      ['BR', 'sticker_required'],
     ]);
     expect(single.modes.checked.total).toBe(single.modes.cabin.total); // bag already included
   });

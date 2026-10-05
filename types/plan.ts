@@ -47,6 +47,8 @@ export interface VisaStop {
   blocked: boolean;
   /** Data has not been checked by a human recently. */
   unverified: boolean;
+  /** Date of desk research behind this rule, when not human-verified. */
+  researchedAt?: string;
 }
 
 export interface ModeBreakdown {

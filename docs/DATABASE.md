@@ -113,6 +113,25 @@ The country now shows "Checked <date>" on the site. After **90 days** it counts 
 
 ---
 
+### Research notes (desk research)
+- Each country also has a **research** note: the date, a confidence level (high/medium/low), what was checked, and source links. It shows on the country page under "What we checked and sources".
+- Research is **not** a human verification. It never sets `lastVerifiedAt`, and the site says "Researched <date> · not yet checked by our team".
+- The October 2026 pass is in `data/seed/research-2026-10.ts`:
+  - every entry type was cross-checked against IATA Timatic data;
+  - the popular and disputed countries were checked against official and news sources;
+  - 83 records were corrected.
+- To re-apply it, or apply a future pass:
+  ```bash
+  npx tsx scripts/apply-research.ts           # dry run: lists the changes
+  npx tsx scripts/apply-research.ts --write   # saves data/*.json
+  npm run db:setup -- --force                 # push to Supabase (overwrites)
+  ```
+- **Start your human review with the low-confidence ones.** In admin these show as "Researched · low".
+- **Time-limited rules — recheck by these dates:**
+  - Malaysia visa-free entry ends **31 Dec 2026**.
+  - Sri Lanka's free ETA is a limited-period programme.
+  - Thailand moved to 30 days on **15 Sept 2026**.
+
 ## 4. Backups
 
 - **Download:** `/admin` → **Backup & Sync** → **Download JSON Backup**. This is one file with everything. Do it before big edits, and weekly.

@@ -101,6 +101,7 @@ export function entryStop(country: CountryVisaProfile, role: VisaStop['role'], a
     steps: country.applicationSteps?.length ? country.applicationSteps : GENERIC_STEPS[resolved.effectiveCategory],
     blocked,
     unverified: verificationStatus(country.lastVerifiedAt, ctx.today) !== 'verified',
+    researchedAt: country.research?.checkedAt,
   };
 }
 
@@ -141,6 +142,7 @@ export function transitStop(hub: TransitHubProfile, airside: boolean, ctx: VisaC
     officialUrl: hub.officialPortalUrl,
     steps: hub.stepByStepGuide,
     unverified,
+    researchedAt: hub.research?.checkedAt,
   };
 
   if (hub.transitVisaNeededForIndians && !exempt) {

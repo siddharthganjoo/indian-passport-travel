@@ -592,7 +592,7 @@ export default function AdminPage() {
                         {c.popularAirports.slice(0, 3).join(', ')}
                       </td>
                       <td className="p-3 whitespace-nowrap">
-                        <VerifiedCell value={c.lastVerifiedAt} />
+                        <VerifiedCell value={c.lastVerifiedAt} research={c.research} />
                       </td>
                       <td className="p-3 text-right">
                         <div className="flex items-center justify-end gap-2">
@@ -767,7 +767,7 @@ export default function AdminPage() {
                 </div>
 
                 <div className="flex items-center justify-between pt-2 border-t border-zinc-100 dark:border-zinc-800">
-                  <VerifiedCell value={hub.lastVerifiedAt} />
+                  <VerifiedCell value={hub.lastVerifiedAt} research={hub.research} />
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleVerify('hub', hub.code)}
@@ -1349,9 +1349,14 @@ export default function AdminPage() {
 }
 
 
-function VerifiedCell({ value }: { value?: string | null }) {
+function VerifiedCell({ value, research }: { value?: string | null; research?: { checkedAt: string; confidence: string } }) {
   const status = verificationStatus(value);
-  if (status === 'unverified') return <span className="text-xs text-amber-700 dark:text-amber-400">Never</span>;
+  if (status === 'unverified')
+    return (
+      <span className="text-xs text-amber-700 dark:text-amber-400" title={research ? `Desk research ${research.checkedAt} (${research.confidence} confidence)` : undefined}>
+        {research ? `Researched · ${research.confidence}` : 'Never'}
+      </span>
+    );
   const date = new Date(value!).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
   return <span className={cn('text-xs', status === 'stale' ? 'text-amber-700 dark:text-amber-400' : 'text-emerald-700 dark:text-emerald-400')}>{date}</span>;
 }

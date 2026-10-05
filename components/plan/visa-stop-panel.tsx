@@ -49,7 +49,9 @@ export function VisaStopPanel({ stop, defaultOpen }: { stop: VisaStop; defaultOp
           {stop.notes && <span className="mt-2 block text-sm text-zinc-600 dark:text-zinc-400">{stop.notes}</span>}
           {stop.unverified && (
             <span className="mt-1 block text-xs text-amber-700 dark:text-amber-400">
-              Not yet verified by our team — confirm on the official site.
+              {stop.researchedAt
+                ? `Researched ${formatDay(stop.researchedAt)}, not yet checked by our team — confirm on the official site.`
+                : 'Not yet verified by our team — confirm on the official site.'}
             </span>
           )}
         </span>

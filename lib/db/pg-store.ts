@@ -39,6 +39,7 @@ export function countryFromRow(r: CountryRow): CountryVisaProfile {
     ...(r.coverImage ? { coverImage: r.coverImage } : {}),
     ...(r.sampleLowFareInr != null ? { sampleLowFareInr: r.sampleLowFareInr } : {}),
     ...(r.fareTrends ? { fareTrends: r.fareTrends } : {}),
+    ...(r.research ? { research: r.research } : {}),
     lastVerifiedAt: iso(r.lastVerifiedAt),
     lastUpdated: r.updatedAt.toISOString(),
   };
@@ -69,6 +70,7 @@ export function countryToRow(c: CountryVisaProfile): typeof countries.$inferInse
     coverImage: c.coverImage ?? null,
     sampleLowFareInr: c.sampleLowFareInr ?? null,
     fareTrends: c.fareTrends ?? null,
+    research: c.research ?? null,
     lastVerifiedAt: date(c.lastVerifiedAt),
     updatedAt: new Date(),
   };
@@ -89,6 +91,7 @@ export function hubFromRow(r: HubRow): TransitHubProfile {
     transitVisaCostInr: r.transitVisaCostInr,
     transitVisaCostUsd: r.transitVisaCostUsd,
     terminalChangeRequiresVisa: r.terminalChangeRequiresVisa,
+    ...(r.research ? { research: r.research } : {}),
     lastVerifiedAt: iso(r.lastVerifiedAt),
   };
 }
@@ -120,6 +123,7 @@ export function hubToRow(h: TransitHubProfile): typeof transitHubs.$inferInsert 
       stepByStepGuide: h.stepByStepGuide,
       officialPortalUrl: h.officialPortalUrl,
     },
+    research: h.research ?? null,
     lastVerifiedAt: date(h.lastVerifiedAt),
     updatedAt: new Date(),
   };

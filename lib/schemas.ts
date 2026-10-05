@@ -6,6 +6,12 @@ const iata = z.string().trim().toUpperCase().regex(/^[A-Z]{3}$/, 'Use a 3-letter
 const iso2 = z.string().trim().toUpperCase().regex(/^[A-Z]{2}$/, 'Use a 2-letter country code');
 const heldVisa = z.enum(HELD_VISAS as [string, ...string[]]);
 const category = z.enum(['visa_free', 'voa', 'evisa', 'sticker_required']);
+const research = z.object({
+  checkedAt: z.string(),
+  confidence: z.enum(['high', 'medium', 'low']),
+  summary: z.string(),
+  sources: z.array(z.object({ label: z.string(), url: z.string() })),
+});
 
 /* ── Trip planner query (URL search params) ───────────────────────────────── */
 
@@ -62,6 +68,7 @@ export const countrySchema = z
     recommendedHubs: z.array(iata).optional(),
     lastUpdated: z.string().optional(),
     lastVerifiedAt: z.string().nullable().optional(),
+    research: research.optional(),
   })
   .refine((c) => c.processingTimeDays.max >= c.processingTimeDays.min, { message: 'Processing max must be ≥ min' });
 
@@ -90,6 +97,7 @@ export const hubSchema = z.object({
   stepByStepGuide: z.array(z.string()).default([]),
   officialPortalUrl: z.string().default(''),
   lastVerifiedAt: z.string().nullable().optional(),
+  research: research.optional(),
 });
 
 const routeLeg = z.object({

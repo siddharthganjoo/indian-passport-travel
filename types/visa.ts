@@ -26,6 +26,15 @@ export interface MonthlyFareTrend {
 export type Continent = 'Asia' | 'Europe' | 'Africa' | 'Americas' | 'Oceania' | 'Middle East';
 export const CONTINENTS: Continent[] = ['Asia', 'Middle East', 'Europe', 'Africa', 'Americas', 'Oceania'];
 
+/** Desk research behind a record (not a human verification — see lastVerifiedAt). */
+export interface ResearchRecord {
+  checkedAt: string; // ISO date
+  confidence: 'high' | 'medium' | 'low';
+  /** What was checked and what changed, in one or two sentences. */
+  summary: string;
+  sources: { label: string; url: string }[];
+}
+
 export interface CountryVisaProfile {
   countryCode: string;          // ISO-3166-1 alpha-2 (e.g., 'TR', 'GE', 'AE')
   countryName: string;
@@ -55,6 +64,7 @@ export interface CountryVisaProfile {
   lastUpdated?: string;
   /** ISO timestamp of the last human check against the official source. null = never verified. */
   lastVerifiedAt?: string | null;
+  research?: ResearchRecord;
 }
 
 export interface UserVisaProfile {

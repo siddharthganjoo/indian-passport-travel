@@ -51,6 +51,12 @@ export default async function HowWeVerifyPage() {
               <strong>May be out of date</strong> — last checked more than 90 days ago; it&apos;s queued for review.
             </li>
             <li>
+              <strong>Researched &lt;date&gt;</strong> — we cross-checked the entry rule against IATA Timatic data (what
+              airlines check at boarding) and, for popular or disputed countries, official embassy and government pages and
+              recent news. Each country lists exactly what was checked, a confidence level and the sources. A person still
+              needs to confirm it.
+            </li>
+            <li>
               <strong>Not yet verified</strong> — compiled from public sources but not yet reviewed. Treat it as a starting
               point and confirm on the official website.
             </li>

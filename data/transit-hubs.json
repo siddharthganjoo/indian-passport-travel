@@ -22,9 +22,11 @@
     ],
     "rulesSummary": "Airside transit within the international transit area is 100% visa-free on connecting single tickets. If stepping out of the airport or doing a self-transfer, Indian citizens with a valid US, UK, or Schengen visa get an instantaneous online eVisa for $50.",
     "criticalWarnings": [
-      "Self-transfers between separate tickets require passing border control — ensure you hold a valid Turkish eVisa or sticker visa.",
-      "Turkish eVisa is strictly conditional for Indian passport holders: you MUST possess a valid US, UK, Schengen, or Ireland visa/residence permit.",
-      "Do not book separate tickets with under 3.5 hours layover at IST due to massive terminal walking distances."
+      "Flying on to Mexico, Panama, Colombia or Venezuela? Indians need a free Electronic Airport Transit Visa (e-ATV) from evisa.gov.tr — even when staying airside.",
+      "Switching between Istanbul Airport (IST) and Sabiha Gökçen (SAW) requires a Turkish visa.",
+      "Self-transfers between separate tickets with checked bags require passing border control — you need a Turkish visa.",
+      "Turkish eVisa is conditional for Indians: you must hold a valid US, UK, Schengen or Ireland visa/residence permit.",
+      "Do not book separate tickets with under 3.5 hours between flights at IST."
     ],
     "stepByStepGuide": [
       "Deplane at IST and follow purple \"International Transfers\" signs if staying airside.",
@@ -36,7 +38,22 @@
     "countryCode": "TR",
     "airsideSelfTransfer": true,
     "transitVisaExemptWith": [],
-    "lastVerifiedAt": null
+    "lastVerifiedAt": "2026-10-05T20:52:57.086Z",
+    "research": {
+      "checkedAt": "2026-10-05",
+      "confidence": "high",
+      "summary": "Turkish embassy notice: e-ATV required for Indians transiting IST to Mexico, Panama, Colombia and Venezuela (free, since 15 Apr 2024).",
+      "sources": [
+        {
+          "label": "Embassy of Türkiye, New Delhi — e-ATV announcement",
+          "url": "https://newdelhi-emb.mfa.gov.tr/Mission/ShowAnnouncement/409495"
+        },
+        {
+          "label": "Outlook Traveller — e-transit visa for Istanbul layovers",
+          "url": "https://www.outlooktraveller.com/News/electronic-transit-visa-now-needed-for-istanbul-airport-layovers"
+        }
+      ]
+    }
   },
   {
     "code": "ADD",
@@ -172,8 +189,9 @@
     ],
     "rulesSummary": "Malaysia grants 100% VISA-FREE entry to all Indian passport holders for up to 30 days! Self-transfers, terminal transfers between KLIA1 and KLIA2, or city day-trips require zero visa fees.",
     "criticalWarnings": [
-      "Must complete the Malaysia Digital Arrival Card (MDAC) online within 3 days prior to arrival.",
-      "KLIA Terminal 1 and Terminal 2 are separate buildings connected by the KLIA Ekspres train (3 minutes, RM 2)."
+      "Complete the Malaysia Digital Arrival Card (MDAC) within 3 days before arrival — also for self-transfers.",
+      "Carry proof of onward ticket, hotel and funds: KLIA has been refusing entry to Indians who can’t show them.",
+      "AirAsia flies from KLIA Terminal 2 — check both flights’ terminals."
     ],
     "stepByStepGuide": [
       "Fill out MDAC online before departure.",
@@ -184,7 +202,18 @@
     "countryCode": "MY",
     "airsideSelfTransfer": false,
     "transitVisaExemptWith": [],
-    "lastVerifiedAt": null
+    "lastVerifiedAt": null,
+    "research": {
+      "checkedAt": "2026-10-05",
+      "confidence": "high",
+      "summary": "Malaysia visa-free entry for Indians runs to 31 Dec 2026; MDAC mandatory; entry refusals reported at KLIA.",
+      "sources": [
+        {
+          "label": "Gulf News — Indians denied entry under Malaysia visa-free scheme",
+          "url": "https://gulfnews.com/business/tourism/why-are-indians-denied-entry-into-malaysia-under-30-day-visa-free-entry-scheme-1.500249807"
+        }
+      ]
+    }
   },
   {
     "code": "SIN",
@@ -271,10 +300,10 @@
     "flagEmoji": "🇩🇪",
     "airsideTransitAllowed": true,
     "maxAirsideHours": 24,
-    "transitVisaNeededForIndians": true,
-    "transitVisaType": "Airport Transit Visa (ATV) Required UNLESS Holding US/UK/Canada Visa",
-    "transitVisaCostInr": 8000,
-    "transitVisaCostUsd": 90,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "No airport transit visa needed (since 3 June 2026)",
+    "transitVisaCostInr": 0,
+    "transitVisaCostUsd": 0,
     "terminalChangeRequiresVisa": false,
     "freeStopoverHotelAvailable": false,
     "freeTourAvailable": false,
@@ -282,10 +311,10 @@
       "Lufthansa",
       "Air India"
     ],
-    "rulesSummary": "MAJOR SCHENGEN TRAP: Indian passport holders require a Schengen Airport Transit Visa (ATV Type A) to transit through Frankfurt or Munich, UNLESS they hold a valid US, UK, Canada, Japan, or Schengen visa/residency!",
+    "rulesSummary": "Since 3 June 2026 Indian passport holders no longer need an airport transit visa at Frankfurt (also Munich, Berlin; Düsseldorf and Hamburg with limits) — provided you stay airside and fly on to a non-Schengen destination. Collecting bags, changing airports or leaving the airport needs a Schengen visa.",
     "criticalWarnings": [
-      "If you do not hold a valid US, UK, Canada, or Schengen visa, booking Lufthansa through Germany to South America or US will result in DENIED BOARDING in India!",
-      "Connecting between two Schengen airports (e.g., DEL -> FRA -> CDG) is NOT airside transit; it enters the Schengen border and strictly requires a Schengen tourist visa."
+      "Airside only: separate tickets with checked bags require a Schengen visa.",
+      "Your onward flight must leave the Schengen area (e.g. to the US, Canada or UK)."
     ],
     "stepByStepGuide": [
       "Only book German transit routes if you hold a valid physical visa for the US, UK, Canada, or Schengen.",
@@ -294,11 +323,23 @@
     "officialPortalUrl": "https://www.auswaertiges-amt.de",
     "countryCode": "DE",
     "airsideSelfTransfer": false,
-    "transitVisaExemptWith": [
-      "US",
-      "Schengen"
-    ],
-    "lastVerifiedAt": null
+    "transitVisaExemptWith": [],
+    "lastVerifiedAt": null,
+    "research": {
+      "checkedAt": "2026-10-05",
+      "confidence": "high",
+      "summary": "German airport transit visa requirement for Indians removed from 3 June 2026 (German Federal Foreign Office).",
+      "sources": [
+        {
+          "label": "The Local Germany — visa-free transit for Indian travellers",
+          "url": "https://www.thelocal.de/20260113/germany-to-allow-visa-free-transit-for-indian-travellers"
+        },
+        {
+          "label": "Wego — Indian nationals no longer need German ATV",
+          "url": "https://blog.wego.com/indian-nationals-no-longer-need-airport-transit-visa-for-german-layovers/"
+        }
+      ]
+    }
   },
   {
     "code": "AUH",
@@ -348,7 +389,7 @@
     "airsideSelfTransfer": true,
     "maxAirsideHours": 12,
     "transitVisaNeededForIndians": false,
-    "transitVisaType": "Visa-free entry for Indians",
+    "transitVisaType": "Visa-free entry for Indians (30 days from 15 Sept 2026)",
     "transitVisaCostInr": 0,
     "transitVisaCostUsd": 0,
     "terminalChangeRequiresVisa": false,
@@ -372,7 +413,18 @@
     ],
     "officialPortalUrl": "https://tdac.immigration.go.th",
     "lastVerifiedAt": null,
-    "transitVisaExemptWith": []
+    "transitVisaExemptWith": [],
+    "research": {
+      "checkedAt": "2026-10-05",
+      "confidence": "high",
+      "summary": "Thailand visa exemption for Indians is 30 days from 15 Sept 2026; TDAC required.",
+      "sources": [
+        {
+          "label": "Royal Thai Embassy, New Delhi",
+          "url": "https://newdelhi.thaiembassy.org/en/content/latest-update-on-revision-to-thailand-s-visa-exemp"
+        }
+      ]
+    }
   },
   {
     "code": "CMB",
@@ -385,7 +437,7 @@
     "airsideSelfTransfer": false,
     "maxAirsideHours": 24,
     "transitVisaNeededForIndians": false,
-    "transitVisaType": "Free online ETA for Indians",
+    "transitVisaType": "Free online ETA for Indians (since 25 May 2026)",
     "transitVisaCostInr": 0,
     "transitVisaCostUsd": 0,
     "terminalChangeRequiresVisa": false,
@@ -406,7 +458,18 @@
     ],
     "officialPortalUrl": "https://www.eta.gov.lk",
     "lastVerifiedAt": null,
-    "transitVisaExemptWith": []
+    "transitVisaExemptWith": [],
+    "research": {
+      "checkedAt": "2026-10-05",
+      "confidence": "high",
+      "summary": "Sri Lanka free ETA for Indians from 25 May 2026.",
+      "sources": [
+        {
+          "label": "All India Radio — Sri Lanka free tourist visas",
+          "url": "https://www.newsonair.gov.in/sri-lanka-will-introduce-6-month-programme-granting-free-tourist-visas-to-passport-holders-from-39-countries"
+        }
+      ]
+    }
   },
   {
     "code": "MCT",
