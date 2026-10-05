@@ -1,74 +1,61 @@
-import * as React from 'react';
 import Link from 'next/link';
-import { Compass, ShieldAlert } from 'lucide-react';
+import { Logo } from '@/components/brand/logo';
+
+const COLUMNS = [
+  {
+    title: 'Plan',
+    links: [
+      { href: '/', label: 'Search flights' },
+      { href: '/routes', label: 'Route ideas' },
+      { href: '/transit-hubs', label: 'Transit hubs' },
+    ],
+  },
+  {
+    title: 'Visas',
+    links: [
+      { href: '/visas', label: 'All countries' },
+      { href: '/visas?category=visa_free', label: 'Visa-free' },
+      { href: '/visas?category=evisa', label: 'eVisa' },
+    ],
+  },
+  {
+    title: 'jugo',
+    links: [
+      { href: '/privacy', label: 'Privacy' },
+      { href: '/terms', label: 'Terms' },
+    ],
+  },
+];
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 mt-20 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-zinc-200 dark:border-zinc-800">
-          {/* Brand Col */}
-          <div className="md:col-span-2 space-y-3">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-md bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 flex items-center justify-center">
-                <Compass className="w-3.5 h-3.5" />
-              </div>
-              <span className="font-bold text-sm tracking-tight text-zinc-950 dark:text-white uppercase font-mono">
-                DesiVisa Metasearch
-              </span>
-            </div>
-            <p className="text-xs text-zinc-600 dark:text-zinc-400 max-w-md leading-relaxed">
-              An independent, editorial-grade flight and immigration discovery platform built exclusively for Indian passport holders. We index live visa waivers, conditional US/Schengen/UK relaxations, and multi-city low fare corridors from Indian international hubs.
+    <footer className="on-dark bg-black text-white mt-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-10">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+          <div className="space-y-4">
+            <Link href="/" className="text-[34px] inline-block" aria-label="jugo home">
+              <Logo />
+            </Link>
+            <p className="text-sm text-zinc-400 max-w-xs leading-relaxed">
+              Cheaper ways to fly abroad on an Indian passport — with every visa on the route sorted.
             </p>
           </div>
-
-          {/* Quick Links */}
-          <div className="space-y-2">
-            <div className="text-xs font-semibold uppercase font-mono tracking-wider text-zinc-900 dark:text-zinc-100">
-              Legal & Transparency
-            </div>
-            <ul className="space-y-1.5 text-xs text-zinc-600 dark:text-zinc-400">
-              <li>
-                <Link href="/privacy" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
-                  Privacy Policy (DPDP & GDPR)
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
-                  Terms & Conditions (Liability Disclaimer)
-                </Link>
-              </li>
-              <li>
-                <a href="/sitemap.xml" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
-                  XML Sitemap
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Hubs */}
-          <div className="space-y-2">
-            <div className="text-xs font-semibold uppercase font-mono tracking-wider text-zinc-900 dark:text-zinc-100">
-              Key Departure Hubs
-            </div>
-            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-mono">
-              DEL (Delhi) • BOM (Mumbai) • BLR (Bengaluru) • MAA (Chennai) • HYD (Hyderabad) • CCU (Kolkata) • COK (Kochi)
-            </p>
-          </div>
+          {COLUMNS.map((col) => (
+            <nav key={col.title} aria-label={col.title} className="space-y-3">
+              <h2 className="text-sm font-medium">{col.title}</h2>
+              <ul className="space-y-2 text-sm text-zinc-400">
+                {col.links.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="hover:text-white">{l.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
         </div>
-
-        {/* Legal Disclaimer Box */}
-        <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] text-zinc-500 dark:text-zinc-400">
-          <div className="flex items-start gap-2 max-w-2xl">
-            <ShieldAlert className="w-4 h-4 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5" />
-            <p className="leading-relaxed">
-              <strong>Official Immigration Notice:</strong> Visa policies, bilateral fee waivers, and entry eligibility criteria fluctuate at government discretion. DesiVisa is an independent metasearch discovery tool and is not an immigration or visa processing agency. Always confirm entry conditions directly on official sovereign portals prior to flight booking.
-            </p>
-          </div>
-
-          <div className="font-mono text-zinc-400 dark:text-zinc-500 shrink-0">
-            © {new Date().getFullYear()} DesiVisa. All rights reserved.
-          </div>
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col gap-2 sm:flex-row sm:justify-between text-xs text-zinc-500">
+          <p>jugo is not a visa agency or airline. Rules change — always confirm on official government websites.</p>
+          <p>© {new Date().getFullYear()} jugo</p>
         </div>
       </div>
     </footer>

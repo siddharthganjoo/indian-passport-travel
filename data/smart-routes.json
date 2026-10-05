@@ -1,0 +1,486 @@
+[
+  {
+    "id": "route-br-istanbul",
+    "originIata": "DEL",
+    "originCity": "New Delhi",
+    "destinationCountryCode": "BR",
+    "destinationCountryName": "Brazil",
+    "destinationIata": "GRU",
+    "destinationCity": "São Paulo",
+    "hubIata": "IST",
+    "hubCity": "Istanbul",
+    "hubCountry": "Turkey",
+    "standardDirectFareInr": 118000,
+    "hackCombinedFareInr": 67000,
+    "estimatedSavingsInr": 51000,
+    "savingsPercentage": 43,
+    "leg1": {
+      "fromIata": "DEL",
+      "fromCity": "Delhi",
+      "toIata": "IST",
+      "toCity": "Istanbul",
+      "airline": "IndiGo / Turkish Airlines",
+      "airlineCode": "TK / 6E",
+      "typicalDurationHours": 6.5,
+      "typicalFareInr": 22000,
+      "flightFrequency": "3x daily non-stop",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/del/ist"
+    },
+    "leg2": {
+      "fromIata": "IST",
+      "fromCity": "Istanbul",
+      "toIata": "GRU",
+      "toCity": "São Paulo",
+      "airline": "Turkish Airlines",
+      "airlineCode": "TK",
+      "typicalDurationHours": 13,
+      "typicalFareInr": 45000,
+      "flightFrequency": "Daily non-stop",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/ist/gru"
+    },
+    "transitVisa": {
+      "status": "conditional_free",
+      "badgeLabel": "Turkey eVisa or Free Airside Transit",
+      "costInr": 4200,
+      "costUsd": 50,
+      "allowedHours": 72,
+      "description": "Airside transit is 100% FREE without any visa if booked on a through ticket (Turkish Airlines). If self-transferring or exploring the city, Indian passport holders with valid US, UK, or Schengen visas get an instant online eVisa for $50 (~₹4,200).",
+      "exemptionNotes": "Turkish Airlines offers Touristanbul: 100% free guided Istanbul tour + meals for layovers over 6 hours!",
+      "officialLink": "https://www.evisa.gov.tr"
+    },
+    "layover": {
+      "minRecommendedLayoverHours": 3.5,
+      "baggageTransfer": "through_checked",
+      "baggageAdvice": "If booked as a single Turkish Airlines itinerary, luggage is automatically checked through to São Paulo. For self-transfer split tickets on IndiGo + Turkish, allow 4+ hours to clear Turkish e-Visa immigration and re-check bags.",
+      "terminalTransferNotes": "All operations are under the single mega-terminal at Istanbul Grand Airport (IST). Very smooth transit flow with clear transfer security checkpoints.",
+      "freeStopoverPerks": {
+        "hasFreeHotel": true,
+        "hasFreeCityTour": true,
+        "description": "For economy passengers with layover ≥ 20 hours (or business ≥ 9 hours), Turkish Airlines provides up to 2 nights free 4-star hotel stay in Istanbul!",
+        "airlineProgramName": "Turkish Airlines Stopover Istanbul & Touristanbul",
+        "link": "https://www.turkishairlines.com/en-int/flights/stopover/"
+      },
+      "recommendedTimingTips": [
+        "Optimal layover: 18-36 hours to enjoy a free Istanbul city holiday on your way to Latin America.",
+        "Carry a printed copy of your US/UK/Schengen visa to clear Turkish e-Visa border control in under 3 minutes.",
+        "Book directly on Turkish Airlines multi-city search to unlock the free hotel perk."
+      ]
+    },
+    "bestAirlines": [
+      "Turkish Airlines",
+      "IndiGo"
+    ],
+    "notes": "The gold standard route hack for Indians visiting South America. Cuts typical ₹1.2L airfare nearly in half while visiting two world wonders in one vacation.",
+    "verifiedDate": "2026-04"
+  },
+  {
+    "id": "route-br-addis",
+    "originIata": "BOM",
+    "originCity": "Mumbai",
+    "destinationCountryCode": "BR",
+    "destinationCountryName": "Brazil",
+    "destinationIata": "GRU",
+    "destinationCity": "São Paulo",
+    "hubIata": "ADD",
+    "hubCity": "Addis Ababa",
+    "hubCountry": "Ethiopia",
+    "standardDirectFareInr": 118000,
+    "hackCombinedFareInr": 61000,
+    "estimatedSavingsInr": 57000,
+    "savingsPercentage": 48,
+    "leg1": {
+      "fromIata": "BOM",
+      "fromCity": "Mumbai",
+      "toIata": "ADD",
+      "toCity": "Addis Ababa",
+      "airline": "Ethiopian Airlines",
+      "airlineCode": "ET",
+      "typicalDurationHours": 5.5,
+      "typicalFareInr": 18500,
+      "flightFrequency": "2x daily non-stop",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/bom/add"
+    },
+    "leg2": {
+      "fromIata": "ADD",
+      "fromCity": "Addis Ababa",
+      "toIata": "GRU",
+      "toCity": "São Paulo",
+      "airline": "Ethiopian Airlines",
+      "airlineCode": "ET",
+      "typicalDurationHours": 12.5,
+      "typicalFareInr": 42500,
+      "flightFrequency": "Daily non-stop",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/add/gru"
+    },
+    "transitVisa": {
+      "status": "visa_free_airside",
+      "badgeLabel": "100% Transit Visa-Free for Indians",
+      "costInr": 0,
+      "costUsd": 0,
+      "allowedHours": 12,
+      "description": "Indian passport holders do NOT require any transit visa in Addis Ababa (ADD) for layovers under 12 hours. For layovers between 8 and 24 hours, Ethiopian Airlines provides a free transit hotel voucher and complimentary transit visa at the transfer desk.",
+      "exemptionNotes": "Yellow Fever card recommended if leaving the airport into the city, but NOT required for airside transit.",
+      "officialLink": "https://www.ethiopianairlines.com"
+    },
+    "layover": {
+      "minRecommendedLayoverHours": 2,
+      "baggageTransfer": "through_checked",
+      "baggageAdvice": "Both legs operated seamlessly by Star Alliance member Ethiopian Airlines. Bags are checked all the way from Mumbai to São Paulo.",
+      "terminalTransferNotes": "Terminal 2 at Bole International Airport (ADD). Transfer security takes 15-20 minutes.",
+      "freeStopoverPerks": {
+        "hasFreeHotel": true,
+        "hasFreeCityTour": false,
+        "description": "Ethiopian Airlines provides free hotel accommodation + free airport transfer + buffet meals if your transit connection is between 8 and 24 hours!",
+        "airlineProgramName": "Ethiopian Airlines Transit Hotel Service",
+        "link": "https://www.ethiopianairlines.com/aa/services/transit-service"
+      },
+      "recommendedTimingTips": [
+        "Best option for Indian passport holders who DO NOT hold a US or Schengen visa.",
+        "Save nearly ₹60,000 compared to legacy carriers routing via Europe.",
+        "Choose an 8+ hour layover to sleep in the complimentary Skylight Hotel."
+      ]
+    },
+    "bestAirlines": [
+      "Ethiopian Airlines"
+    ],
+    "notes": "Cheapest legal option to South America for Indian passport holders with zero third-country visa prerequisites.",
+    "verifiedDate": "2026-04"
+  },
+  {
+    "id": "route-br-dubai",
+    "originIata": "DEL",
+    "originCity": "New Delhi",
+    "destinationCountryCode": "BR",
+    "destinationCountryName": "Brazil",
+    "destinationIata": "GRU",
+    "destinationCity": "São Paulo",
+    "hubIata": "DXB",
+    "hubCity": "Dubai",
+    "hubCountry": "United Arab Emirates",
+    "standardDirectFareInr": 118000,
+    "hackCombinedFareInr": 72000,
+    "estimatedSavingsInr": 46000,
+    "savingsPercentage": 39,
+    "leg1": {
+      "fromIata": "DEL",
+      "fromCity": "Delhi",
+      "toIata": "DXB",
+      "toCity": "Dubai",
+      "airline": "Emirates / Flydubai / IndiGo",
+      "airlineCode": "EK / FZ",
+      "typicalDurationHours": 3.5,
+      "typicalFareInr": 12000,
+      "flightFrequency": "10x daily non-stop",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/del/dxb"
+    },
+    "leg2": {
+      "fromIata": "DXB",
+      "fromCity": "Dubai",
+      "toIata": "GRU",
+      "toCity": "São Paulo",
+      "airline": "Emirates",
+      "airlineCode": "EK",
+      "typicalDurationHours": 14.5,
+      "typicalFareInr": 60000,
+      "flightFrequency": "Daily A380 non-stop",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/dxb/gru"
+    },
+    "transitVisa": {
+      "status": "evisa_available",
+      "badgeLabel": "48h Free Transit / 14-day VoA with US Visa",
+      "costInr": 1200,
+      "costUsd": 14,
+      "allowedHours": 48,
+      "description": "48-hour UAE transit visa is issued free (only ~₹1,200 admin charge) by Emirates. Indian passport holders with US, UK, or Schengen visas get 14-day Visa on Arrival directly at DXB passport control.",
+      "exemptionNotes": "Airside transit is 100% free without visa for up to 24 hours on through tickets.",
+      "officialLink": "https://gdrfad.gov.ae"
+    },
+    "layover": {
+      "minRecommendedLayoverHours": 2.5,
+      "baggageTransfer": "through_checked",
+      "baggageAdvice": "If booked via Emirates, luggage is through-checked to Brazil. For self-transfer on low-cost carrier legs, allow 3.5+ hours to clear UAE immigration.",
+      "terminalTransferNotes": "Emirates operates Terminal 3 at DXB. State of the art world hub with 24/7 duty-free and sleeping lounges.",
+      "freeStopoverPerks": {
+        "hasFreeHotel": false,
+        "hasFreeCityTour": false,
+        "description": "Dubai Stopover package offers deeply discounted 4-star and 5-star desert luxury stays starting at $35/night.",
+        "airlineProgramName": "Dubai Stopover by Emirates",
+        "link": "https://www.emirates.com/in/english/experience/dubai-stopover/"
+      },
+      "recommendedTimingTips": [
+        "Fly A380 flagship service directly between Dubai and São Paulo.",
+        "Break the 20-hour journey with a 2-day shopping and desert stopover in Dubai."
+      ]
+    },
+    "bestAirlines": [
+      "Emirates",
+      "Flydubai"
+    ],
+    "notes": "Premium comfort route hack with unmatched frequency and easy UAE transit access.",
+    "verifiedDate": "2026-04"
+  },
+  {
+    "id": "route-is-abu-dhabi",
+    "originIata": "DEL",
+    "originCity": "New Delhi",
+    "destinationCountryCode": "IS",
+    "destinationCountryName": "Iceland",
+    "destinationIata": "KEF",
+    "destinationCity": "Reykjavik",
+    "hubIata": "AUH",
+    "hubCity": "Abu Dhabi",
+    "hubCountry": "United Arab Emirates",
+    "standardDirectFareInr": 72000,
+    "hackCombinedFareInr": 34000,
+    "estimatedSavingsInr": 38000,
+    "savingsPercentage": 53,
+    "leg1": {
+      "fromIata": "DEL",
+      "fromCity": "Delhi",
+      "toIata": "AUH",
+      "toCity": "Abu Dhabi",
+      "airline": "IndiGo / Air India / Etihad",
+      "airlineCode": "6E / EY",
+      "typicalDurationHours": 3.5,
+      "typicalFareInr": 9500,
+      "flightFrequency": "6x daily",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/del/auh"
+    },
+    "leg2": {
+      "fromIata": "AUH",
+      "fromCity": "Abu Dhabi",
+      "toIata": "KEF",
+      "toCity": "Reykjavik",
+      "airline": "Wizz Air / European Budget Connect",
+      "airlineCode": "W6",
+      "typicalDurationHours": 8.5,
+      "typicalFareInr": 24500,
+      "flightFrequency": "4x weekly",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/auh/kef"
+    },
+    "transitVisa": {
+      "status": "evisa_available",
+      "badgeLabel": "48h Transit Visa (~₹1,200) or VoA",
+      "costInr": 1200,
+      "costUsd": 14,
+      "allowedHours": 48,
+      "description": "Airside transit at AUH is visa-free. If self-transferring between IndiGo and Wizz Air, you can get a 48h UAE transit visa online or VoA with US/Schengen visa.",
+      "officialLink": "https://www.etihad.com/en-in/fly-etihad/visas"
+    },
+    "layover": {
+      "minRecommendedLayoverHours": 4,
+      "baggageTransfer": "self_transfer_recheck",
+      "baggageAdvice": "Because Leg 2 is on budget carrier Wizz Air/European connector, this is a self-transfer route. Collect baggage at AUH and re-check. Allow minimum 4 hours.",
+      "terminalTransferNotes": "Zayed International Airport (Terminal A) is ultra-modern with fast-track e-gates.",
+      "recommendedTimingTips": [
+        "Ensure you have a valid Schengen visa prior to departure since Iceland requires Schengen entry.",
+        "Travel with cabin luggage only to bypass Abu Dhabi baggage re-check."
+      ]
+    },
+    "bestAirlines": [
+      "IndiGo",
+      "Wizz Air",
+      "Etihad"
+    ],
+    "notes": "The ultra-budget European Arctic hack. Saves over 50% on flights to Iceland.",
+    "verifiedDate": "2026-04"
+  },
+  {
+    "id": "route-ar-addis",
+    "originIata": "BOM",
+    "originCity": "Mumbai",
+    "destinationCountryCode": "AR",
+    "destinationCountryName": "Argentina",
+    "destinationIata": "EZE",
+    "destinationCity": "Buenos Aires",
+    "hubIata": "ADD",
+    "hubCity": "Addis Ababa",
+    "hubCountry": "Ethiopia",
+    "standardDirectFareInr": 126000,
+    "hackCombinedFareInr": 74000,
+    "estimatedSavingsInr": 52000,
+    "savingsPercentage": 41,
+    "leg1": {
+      "fromIata": "BOM",
+      "fromCity": "Mumbai",
+      "toIata": "ADD",
+      "toCity": "Addis Ababa",
+      "airline": "Ethiopian Airlines",
+      "airlineCode": "ET",
+      "typicalDurationHours": 5.5,
+      "typicalFareInr": 18500,
+      "flightFrequency": "2x daily",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/bom/add"
+    },
+    "leg2": {
+      "fromIata": "ADD",
+      "fromCity": "Addis Ababa",
+      "toIata": "EZE",
+      "toCity": "Buenos Aires",
+      "airline": "Ethiopian Airlines",
+      "airlineCode": "ET",
+      "typicalDurationHours": 14,
+      "typicalFareInr": 55500,
+      "flightFrequency": "Daily",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/add/eze"
+    },
+    "transitVisa": {
+      "status": "visa_free_airside",
+      "badgeLabel": "100% Free Airside Transit for Indians",
+      "costInr": 0,
+      "costUsd": 0,
+      "allowedHours": 12,
+      "description": "Zero transit visa needed in Addis Ababa on single ticket. Free hotel and meals provided by Ethiopian Airlines for 8-24 hour connections.",
+      "officialLink": "https://www.ethiopianairlines.com"
+    },
+    "layover": {
+      "minRecommendedLayoverHours": 2.5,
+      "baggageTransfer": "through_checked",
+      "baggageAdvice": "Through-checked luggage all the way to Buenos Aires (EZE).",
+      "terminalTransferNotes": "Terminal 2 transit at Bole International Airport.",
+      "freeStopoverPerks": {
+        "hasFreeHotel": true,
+        "hasFreeCityTour": false,
+        "description": "Complimentary transit hotel in Addis Ababa if layover is between 8 and 24 hours.",
+        "airlineProgramName": "Ethiopian Transit Accommodation"
+      },
+      "recommendedTimingTips": [
+        "Argentina AVE eVisa holders (with US B2 or Schengen visa) can clear Argentine immigration with zero sticker paperwork."
+      ]
+    },
+    "bestAirlines": [
+      "Ethiopian Airlines"
+    ],
+    "notes": "Avoids complex European transit visa rules while cutting fare by over ₹50,000.",
+    "verifiedDate": "2026-04"
+  },
+  {
+    "id": "route-au-vietnam",
+    "originIata": "DEL",
+    "originCity": "New Delhi",
+    "destinationCountryCode": "AU",
+    "destinationCountryName": "Australia",
+    "destinationIata": "SYD",
+    "destinationCity": "Sydney",
+    "hubIata": "SGN",
+    "hubCity": "Ho Chi Minh City",
+    "hubCountry": "Vietnam",
+    "standardDirectFareInr": 68000,
+    "hackCombinedFareInr": 32000,
+    "estimatedSavingsInr": 36000,
+    "savingsPercentage": 53,
+    "leg1": {
+      "fromIata": "DEL",
+      "fromCity": "Delhi",
+      "toIata": "SGN",
+      "toCity": "Ho Chi Minh",
+      "airline": "VietJet Air",
+      "airlineCode": "VJ",
+      "typicalDurationHours": 4.5,
+      "typicalFareInr": 10500,
+      "flightFrequency": "Daily non-stop",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/del/sgn"
+    },
+    "leg2": {
+      "fromIata": "SGN",
+      "fromCity": "Ho Chi Minh",
+      "toIata": "SYD",
+      "toCity": "Sydney",
+      "airline": "VietJet Air",
+      "airlineCode": "VJ",
+      "typicalDurationHours": 8.5,
+      "typicalFareInr": 21500,
+      "flightFrequency": "Daily A330 wide-body",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/sgn/syd"
+    },
+    "transitVisa": {
+      "status": "evisa_available",
+      "badgeLabel": "Vietnam eVisa (~₹2,150) / Free Airside",
+      "costInr": 2150,
+      "costUsd": 25,
+      "allowedHours": 72,
+      "description": "If you want to step out, get the instant Vietnam 90-day eVisa online for $25. Perfect for a 2-day Vietnamese culinary break.",
+      "officialLink": "https://evisa.xuatnhapcanh.gov.vn"
+    },
+    "layover": {
+      "minRecommendedLayoverHours": 3.5,
+      "baggageTransfer": "depends_on_airline",
+      "baggageAdvice": "If booked on VietJet SkyBoss or connected PNR, bags are checked through. For individual promo fares, collect bags and check in again.",
+      "terminalTransferNotes": "Tan Son Nhat International Terminal 2.",
+      "recommendedTimingTips": [
+        "VietJet runs A330 widebody flights between Vietnam and Australia with lie-flat SkyBoss seats at economy prices."
+      ]
+    },
+    "bestAirlines": [
+      "VietJet Air",
+      "Vietnam Airlines"
+    ],
+    "notes": "The hottest budget route hack from India to Down Under.",
+    "verifiedDate": "2026-04"
+  },
+  {
+    "id": "route-jp-kualalumpur",
+    "originIata": "BLR",
+    "originCity": "Bengaluru",
+    "destinationCountryCode": "JP",
+    "destinationCountryName": "Japan",
+    "destinationIata": "NRT",
+    "destinationCity": "Tokyo",
+    "hubIata": "KUL",
+    "hubCity": "Kuala Lumpur",
+    "hubCountry": "Malaysia",
+    "standardDirectFareInr": 58000,
+    "hackCombinedFareInr": 26000,
+    "estimatedSavingsInr": 32000,
+    "savingsPercentage": 55,
+    "leg1": {
+      "fromIata": "BLR",
+      "fromCity": "Bengaluru",
+      "toIata": "KUL",
+      "toCity": "Kuala Lumpur",
+      "airline": "AirAsia / Batik Air / Malaysia Airlines",
+      "airlineCode": "AK / OD / MH",
+      "typicalDurationHours": 4,
+      "typicalFareInr": 8500,
+      "flightFrequency": "4x daily",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/blr/kul"
+    },
+    "leg2": {
+      "fromIata": "KUL",
+      "fromCity": "Kuala Lumpur",
+      "toIata": "NRT",
+      "toCity": "Tokyo",
+      "airline": "AirAsia X / Batik Air",
+      "airlineCode": "D7",
+      "typicalDurationHours": 7,
+      "typicalFareInr": 17500,
+      "flightFrequency": "Daily non-stop",
+      "bookingSearchUrl": "https://www.skyscanner.co.in/transport/flights/kul/nrt"
+    },
+    "transitVisa": {
+      "status": "visa_free_airside",
+      "badgeLabel": "100% VISA-FREE for Indians",
+      "costInr": 0,
+      "costUsd": 0,
+      "allowedHours": 720,
+      "description": "Malaysia offers 100% VISA-FREE entry for Indian passport holders (up to 30 days)! Just fill out the free online MDAC digital card 3 days prior.",
+      "officialLink": "https://imigresen-online.imi.gov.my/mdac/main"
+    },
+    "layover": {
+      "minRecommendedLayoverHours": 3,
+      "baggageTransfer": "self_transfer_recheck",
+      "baggageAdvice": "Since Malaysia is completely visa-free for Indians, you can breeze through immigration, pick up luggage at KLIA2, grab lunch at the airport mall, and check in for Japan.",
+      "terminalTransferNotes": "AirAsia operates at KLIA Terminal 2; full-service airlines at KLIA Terminal 1 (connected via 3-minute train).",
+      "recommendedTimingTips": [
+        "Enjoy a full 24-hour holiday in Kuala Lumpur without paying a single rupee for visas."
+      ]
+    },
+    "bestAirlines": [
+      "AirAsia X",
+      "Batik Air",
+      "Malaysia Airlines"
+    ],
+    "notes": "Zero visa barrier hub hack to reach Tokyo at half the price.",
+    "verifiedDate": "2026-04"
+  }
+]
