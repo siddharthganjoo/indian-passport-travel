@@ -1,0 +1,514 @@
+[
+  {
+    "code": "IST",
+    "airportName": "Istanbul Airport",
+    "city": "Istanbul",
+    "country": "Turkey",
+    "flagEmoji": "🇹🇷",
+    "airsideTransitAllowed": true,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "Visa-Free Airside / $50 Instant eVisa with US/Schengen/UK",
+    "transitVisaCostInr": 4200,
+    "transitVisaCostUsd": 50,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": true,
+    "freeTourAvailable": true,
+    "airlineProgramName": "Turkish Airlines Stopover & Touristanbul",
+    "keyAirlines": [
+      "Turkish Airlines",
+      "IndiGo",
+      "Pegasus Airlines"
+    ],
+    "rulesSummary": "Airside transit within the international transit area is 100% visa-free on connecting single tickets. If stepping out of the airport or doing a self-transfer, Indian citizens with a valid US, UK, or Schengen visa get an instantaneous online eVisa for $50.",
+    "criticalWarnings": [
+      "Self-transfers between separate tickets require passing border control — ensure you hold a valid Turkish eVisa or sticker visa.",
+      "Turkish eVisa is strictly conditional for Indian passport holders: you MUST possess a valid US, UK, Schengen, or Ireland visa/residence permit.",
+      "Do not book separate tickets with under 3.5 hours layover at IST due to massive terminal walking distances."
+    ],
+    "stepByStepGuide": [
+      "Deplane at IST and follow purple \"International Transfers\" signs if staying airside.",
+      "Clear security checkpoint with your onward boarding pass and proceed to departure gate.",
+      "If you have a 6+ hour layover during daytime, head to the Hotel Desk at Arrivals to register for free Touristanbul.",
+      "If layover exceeds 20 hours on single ticket, collect free hotel voucher from Turkish Airlines Hotel Desk."
+    ],
+    "officialPortalUrl": "https://www.evisa.gov.tr",
+    "countryCode": "TR",
+    "airsideSelfTransfer": true,
+    "transitVisaExemptWith": [],
+    "lastVerifiedAt": null
+  },
+  {
+    "code": "ADD",
+    "airportName": "Addis Ababa Bole International Airport",
+    "city": "Addis Ababa",
+    "country": "Ethiopia",
+    "flagEmoji": "🇪🇹",
+    "airsideTransitAllowed": true,
+    "maxAirsideHours": 12,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "100% Free Airside Transit (Zero Visa Needed)",
+    "transitVisaCostInr": 0,
+    "transitVisaCostUsd": 0,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": true,
+    "freeTourAvailable": false,
+    "airlineProgramName": "Ethiopian Airlines Complimentary Transit Hotel",
+    "keyAirlines": [
+      "Ethiopian Airlines"
+    ],
+    "rulesSummary": "The premier connecting hub for Indian travelers heading to South America (Brazil, Argentina) and Africa. No transit visa required for Indian citizens for layovers under 12 hours. Ethiopian Airlines provides free hotel rooms + free meals for transits between 8 and 24 hours.",
+    "criticalWarnings": [
+      "Terminal 2 can get busy during nighttime wave hours; keep your boarding pass and passport handy.",
+      "Yellow fever vaccination card is not needed for airside transit, but recommended if visiting the city."
+    ],
+    "stepByStepGuide": [
+      "Upon landing, proceed to the Ethiopian Airlines Interline Transfer Desk in Terminal 2.",
+      "Present your onward boarding pass to receive transit gate assignment.",
+      "If your connection is between 8 and 24 hours, the desk will issue a hotel voucher and an Ethiopian transit pass.",
+      "Take the designated complimentary hotel shuttle to Skylight Hotel or partner property."
+    ],
+    "officialPortalUrl": "https://www.ethiopianairlines.com",
+    "countryCode": "ET",
+    "airsideSelfTransfer": true,
+    "transitVisaExemptWith": [],
+    "lastVerifiedAt": null
+  },
+  {
+    "code": "DXB",
+    "airportName": "Dubai International Airport",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "flagEmoji": "🇦🇪",
+    "airsideTransitAllowed": true,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "48h Transit Visa (Free/Nominal) / 14-day VoA with US Visa",
+    "transitVisaCostInr": 1200,
+    "transitVisaCostUsd": 14,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": false,
+    "airlineProgramName": "Dubai Stopover by Emirates",
+    "keyAirlines": [
+      "Emirates",
+      "Flydubai",
+      "IndiGo",
+      "Air India"
+    ],
+    "rulesSummary": "Zero transit visa needed for stays under 24 hours in the transit area on a single ticket. For longer stays, Emirates sponsors a 48-hour transit visa (~₹1,200). Indian passport holders with valid US visas get 14-day VoA right at immigration.",
+    "criticalWarnings": [
+      "Budget airline transfers between Terminal 2 (Flydubai/low cost) and Terminal 3 (Emirates) require an airside shuttle bus — allow at least 2.5 hours.",
+      "Self-transfers without baggage interline agreements require clearing immigration."
+    ],
+    "stepByStepGuide": [
+      "Follow \"Flight Connections\" signs in Terminal 1, 2, or 3.",
+      "Clear security scanner.",
+      "Relax in terminal 24/7 duty-free shopping, sleeping pods, or lounges.",
+      "If holding US visa and wishing to exit, head directly to Marhaba / immigration counter for 14-day VoA stamp."
+    ],
+    "officialPortalUrl": "https://gdrfad.gov.ae",
+    "countryCode": "AE",
+    "airsideSelfTransfer": true,
+    "transitVisaExemptWith": [],
+    "lastVerifiedAt": null
+  },
+  {
+    "code": "DOH",
+    "airportName": "Hamad International Airport",
+    "city": "Doha",
+    "country": "Qatar",
+    "flagEmoji": "🇶🇦",
+    "airsideTransitAllowed": true,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "Free 96-hour Transit Visa / Visa on Arrival",
+    "transitVisaCostInr": 0,
+    "transitVisaCostUsd": 0,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": true,
+    "airlineProgramName": "Discover Qatar Transit Tours & Stopover Packages",
+    "keyAirlines": [
+      "Qatar Airways",
+      "IndiGo",
+      "Air India"
+    ],
+    "rulesSummary": "Airside transit is 100% free without visa for up to 24 hours. Free 96-hour transit visa available when flying Qatar Airways. Stopover packages at 4-star hotels start at just $14/night through Discover Qatar.",
+    "criticalWarnings": [
+      "If exiting the airport for a multi-day stay under Qatar VoA, mandatory hotel booking through Discover Qatar is required."
+    ],
+    "stepByStepGuide": [
+      "Disembark and follow signs to Transfer Hub A, B, C, D, or E.",
+      "Visit Discover Qatar transit desk near the iconic giant Lamp Bear for discounted city excursions.",
+      "Board connection flight with minimal hassle in single mega-terminal."
+    ],
+    "officialPortalUrl": "https://visitqatar.com",
+    "countryCode": "QA",
+    "airsideSelfTransfer": true,
+    "transitVisaExemptWith": [],
+    "lastVerifiedAt": null
+  },
+  {
+    "code": "KUL",
+    "airportName": "Kuala Lumpur International Airport (KLIA / KLIA2)",
+    "city": "Kuala Lumpur",
+    "country": "Malaysia",
+    "flagEmoji": "🇲🇾",
+    "airsideTransitAllowed": true,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "100% VISA-FREE for 30 Days (MDAC Card Only)",
+    "transitVisaCostInr": 0,
+    "transitVisaCostUsd": 0,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": false,
+    "airlineProgramName": "Malaysia Truly Asia Stopovers",
+    "keyAirlines": [
+      "AirAsia",
+      "Malaysia Airlines",
+      "Batik Air"
+    ],
+    "rulesSummary": "Malaysia grants 100% VISA-FREE entry to all Indian passport holders for up to 30 days! Self-transfers, terminal transfers between KLIA1 and KLIA2, or city day-trips require zero visa fees.",
+    "criticalWarnings": [
+      "Must complete the Malaysia Digital Arrival Card (MDAC) online within 3 days prior to arrival.",
+      "KLIA Terminal 1 and Terminal 2 are separate buildings connected by the KLIA Ekspres train (3 minutes, RM 2)."
+    ],
+    "stepByStepGuide": [
+      "Fill out MDAC online before departure.",
+      "Upon arrival at KLIA, use standard foreign passport lanes or automated e-gates if eligible.",
+      "Collect baggage, change terminals, or take the 28-minute train into downtown Kuala Lumpur."
+    ],
+    "officialPortalUrl": "https://imigresen-online.imi.gov.my/mdac/main",
+    "countryCode": "MY",
+    "airsideSelfTransfer": false,
+    "transitVisaExemptWith": [],
+    "lastVerifiedAt": null
+  },
+  {
+    "code": "SIN",
+    "airportName": "Singapore Changi Airport",
+    "city": "Singapore",
+    "country": "Singapore",
+    "flagEmoji": "🇸🇬",
+    "airsideTransitAllowed": true,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "Visa-Free Airside / 96-hour VFTF with US/UK/Schengen/Japan Visa",
+    "transitVisaCostInr": 0,
+    "transitVisaCostUsd": 0,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": true,
+    "airlineProgramName": "Free Singapore Tour (FST) by Changi & SIA",
+    "keyAirlines": [
+      "Singapore Airlines",
+      "Scoot",
+      "Air India",
+      "IndiGo"
+    ],
+    "rulesSummary": "Airside transit within Changi Terminals 1, 2, 3, and 4 is completely visa-free on through tickets. Under the Visa-Free Transit Facility (VFTF), Indian citizens holding a valid visa for US, UK, Schengen, Japan, Canada, Australia, NZ, or Germany can enter Singapore for up to 96 hours 100% VISA-FREE!",
+    "criticalWarnings": [
+      "Self-transfer across low-cost carriers (like Scoot without Scoot-Thru) requires clearing immigration — you must qualify for VFTF or hold an entry visa.",
+      "Terminal 4 is not connected by airside Skytrain; requires airside shuttle bus."
+    ],
+    "stepByStepGuide": [
+      "Arrive in Changi and enjoy free Jewel attractions and sky-trains in transit.",
+      "If you have a 5.5 to 24 hour layover, register at the Free Singapore Tour booths in T2 or T3.",
+      "If qualifying for VFTF, clear immigration with your qualifying onward ticket and secondary visa proof."
+    ],
+    "officialPortalUrl": "https://www.ica.gov.sg",
+    "countryCode": "SG",
+    "airsideSelfTransfer": true,
+    "transitVisaExemptWith": [],
+    "lastVerifiedAt": null
+  },
+  {
+    "code": "LHR",
+    "airportName": "London Heathrow Airport",
+    "city": "London",
+    "country": "United Kingdom",
+    "flagEmoji": "🇬🇧",
+    "airsideTransitAllowed": true,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": true,
+    "transitVisaType": "Direct Airside Transit Visa (DATV) Required UNLESS Exempted",
+    "transitVisaCostInr": 4000,
+    "transitVisaCostUsd": 48,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": false,
+    "keyAirlines": [
+      "British Airways",
+      "Virgin Atlantic",
+      "Air India"
+    ],
+    "rulesSummary": "CRITICAL TRAP FOR INDIANS: Indian nationals strictly require a Direct Airside Transit Visa (DATV) to transit London Heathrow, UNLESS they hold a valid visa or residence permit for the US, Canada, Australia, New Zealand, or Schengen Area!",
+    "criticalWarnings": [
+      "NEVER transit London on an Indian passport without a valid US/Canada/Australia visa or an approved UK Transit Visa, or you will be denied boarding at origin in India!",
+      "E-visas for the US/Canada do not always exempt; physical visa foil or verified permit required."
+    ],
+    "stepByStepGuide": [
+      "Verify DATV exemption status on the official UK government visa checker before booking any flight via London.",
+      "Ensure your connection departs on the same day or before 23:59 from the same airport."
+    ],
+    "officialPortalUrl": "https://www.gov.uk/check-uk-visa",
+    "countryCode": "GB",
+    "airsideSelfTransfer": false,
+    "transitVisaExemptWith": [
+      "US",
+      "Schengen",
+      "UK"
+    ],
+    "lastVerifiedAt": null
+  },
+  {
+    "code": "FRA",
+    "airportName": "Frankfurt Airport",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "flagEmoji": "🇩🇪",
+    "airsideTransitAllowed": true,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": true,
+    "transitVisaType": "Airport Transit Visa (ATV) Required UNLESS Holding US/UK/Canada Visa",
+    "transitVisaCostInr": 8000,
+    "transitVisaCostUsd": 90,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": false,
+    "keyAirlines": [
+      "Lufthansa",
+      "Air India"
+    ],
+    "rulesSummary": "MAJOR SCHENGEN TRAP: Indian passport holders require a Schengen Airport Transit Visa (ATV Type A) to transit through Frankfurt or Munich, UNLESS they hold a valid US, UK, Canada, Japan, or Schengen visa/residency!",
+    "criticalWarnings": [
+      "If you do not hold a valid US, UK, Canada, or Schengen visa, booking Lufthansa through Germany to South America or US will result in DENIED BOARDING in India!",
+      "Connecting between two Schengen airports (e.g., DEL -> FRA -> CDG) is NOT airside transit; it enters the Schengen border and strictly requires a Schengen tourist visa."
+    ],
+    "stepByStepGuide": [
+      "Only book German transit routes if you hold a valid physical visa for the US, UK, Canada, or Schengen.",
+      "Stay within the non-Schengen international transit area at Terminal 1 or 2."
+    ],
+    "officialPortalUrl": "https://www.auswaertiges-amt.de",
+    "countryCode": "DE",
+    "airsideSelfTransfer": false,
+    "transitVisaExemptWith": [
+      "US",
+      "Schengen"
+    ],
+    "lastVerifiedAt": null
+  },
+  {
+    "code": "AUH",
+    "airportName": "Zayed International Airport",
+    "city": "Abu Dhabi",
+    "country": "United Arab Emirates",
+    "countryCode": "AE",
+    "flagEmoji": "🇦🇪",
+    "airsideTransitAllowed": true,
+    "airsideSelfTransfer": false,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "Free airside transit; UAE visa needed to leave the airport",
+    "transitVisaCostInr": 0,
+    "transitVisaCostUsd": 0,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": true,
+    "freeTourAvailable": false,
+    "airlineProgramName": "Etihad Stopover",
+    "keyAirlines": [
+      "Etihad Airways",
+      "Air Arabia Abu Dhabi",
+      "IndiGo",
+      "Wizz Air Abu Dhabi"
+    ],
+    "rulesSummary": "Single-ticket connections stay airside with no visa. Separate tickets mean collecting bags and re-checking, which needs a UAE visa (eVisa, or visa on arrival with a valid US/UK/EU visa or residence).",
+    "criticalWarnings": [
+      "Low-cost carriers here do not interline — a delay on leg 1 means a missed leg 2 with no protection.",
+      "Allow 4+ hours for a self-transfer with checked bags."
+    ],
+    "stepByStepGuide": [
+      "Follow \"Transfers\" signs if on one ticket.",
+      "For separate tickets: clear immigration with your UAE visa, collect bags, re-check at Departures."
+    ],
+    "officialPortalUrl": "https://icp.gov.ae",
+    "lastVerifiedAt": null,
+    "transitVisaExemptWith": []
+  },
+  {
+    "code": "BKK",
+    "airportName": "Suvarnabhumi Airport",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "countryCode": "TH",
+    "flagEmoji": "🇹🇭",
+    "airsideTransitAllowed": true,
+    "airsideSelfTransfer": true,
+    "maxAirsideHours": 12,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "Visa-free entry for Indians",
+    "transitVisaCostInr": 0,
+    "transitVisaCostUsd": 0,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": false,
+    "keyAirlines": [
+      "Thai Airways",
+      "IndiGo",
+      "Air India",
+      "Thai AirAsia (DMK)"
+    ],
+    "rulesSummary": "Indians can enter Thailand visa-free, so a landside self-transfer is easy. Fill in the Thailand Digital Arrival Card (TDAC) online within 3 days of arrival.",
+    "criticalWarnings": [
+      "Bangkok has two airports — AirAsia flies from Don Mueang (DMK), 1+ hour from BKK. Check both legs use the same airport.",
+      "TDAC is mandatory for every arrival, including self-transfers."
+    ],
+    "stepByStepGuide": [
+      "Submit TDAC online before landing.",
+      "Clear immigration, collect bags and re-check at the Departures hall.",
+      "For DMK connections allow 5+ hours."
+    ],
+    "officialPortalUrl": "https://tdac.immigration.go.th",
+    "lastVerifiedAt": null,
+    "transitVisaExemptWith": []
+  },
+  {
+    "code": "CMB",
+    "airportName": "Bandaranaike International Airport",
+    "city": "Colombo",
+    "country": "Sri Lanka",
+    "countryCode": "LK",
+    "flagEmoji": "🇱🇰",
+    "airsideTransitAllowed": true,
+    "airsideSelfTransfer": false,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "Free online ETA for Indians",
+    "transitVisaCostInr": 0,
+    "transitVisaCostUsd": 0,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": false,
+    "keyAirlines": [
+      "SriLankan Airlines",
+      "IndiGo",
+      "Air India"
+    ],
+    "rulesSummary": "Single-terminal airport. For separate tickets, get the free online ETA and clear immigration to re-check bags.",
+    "criticalWarnings": [
+      "Apply for the ETA on the official site only — agent sites charge fees."
+    ],
+    "stepByStepGuide": [
+      "Apply for the Sri Lanka ETA online.",
+      "Clear immigration, collect bags, re-check at Departures."
+    ],
+    "officialPortalUrl": "https://www.eta.gov.lk",
+    "lastVerifiedAt": null,
+    "transitVisaExemptWith": []
+  },
+  {
+    "code": "MCT",
+    "airportName": "Muscat International Airport",
+    "city": "Muscat",
+    "country": "Oman",
+    "countryCode": "OM",
+    "flagEmoji": "🇴🇲",
+    "airsideTransitAllowed": true,
+    "airsideSelfTransfer": false,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "Free airside transit; Oman eVisa to leave the airport",
+    "transitVisaCostInr": 0,
+    "transitVisaCostUsd": 0,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": false,
+    "keyAirlines": [
+      "Oman Air",
+      "SalamAir",
+      "IndiGo"
+    ],
+    "rulesSummary": "Airside transit is free on one ticket. Separate tickets need an Oman eVisa (Indians holding a valid US/UK/Schengen visa get easier entry).",
+    "criticalWarnings": [
+      "SalamAir fares are cabin-bag only — add bags when booking."
+    ],
+    "stepByStepGuide": [
+      "Apply for the Oman eVisa online if self-transferring.",
+      "Clear immigration, collect bags, re-check at Departures."
+    ],
+    "officialPortalUrl": "https://evisa.rop.gov.om",
+    "lastVerifiedAt": null,
+    "transitVisaExemptWith": []
+  },
+  {
+    "code": "SGN",
+    "airportName": "Tan Son Nhat International Airport",
+    "city": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "countryCode": "VN",
+    "flagEmoji": "🇻🇳",
+    "airsideTransitAllowed": true,
+    "airsideSelfTransfer": false,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "Vietnam eVisa (~US$25) needed for self-transfer",
+    "transitVisaCostInr": 2200,
+    "transitVisaCostUsd": 25,
+    "terminalChangeRequiresVisa": true,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": false,
+    "keyAirlines": [
+      "VietJet Air",
+      "Vietnam Airlines",
+      "IndiGo"
+    ],
+    "rulesSummary": "Transfer facilities for separate tickets are limited — plan to enter Vietnam on an eVisa, collect bags and re-check.",
+    "criticalWarnings": [
+      "VietJet base fares include only 7kg cabin baggage.",
+      "Apply for the eVisa at least a week ahead."
+    ],
+    "stepByStepGuide": [
+      "Apply for the Vietnam eVisa on the official portal.",
+      "Clear immigration, collect bags, re-check at the international terminal."
+    ],
+    "officialPortalUrl": "https://evisa.gov.vn",
+    "lastVerifiedAt": null,
+    "transitVisaExemptWith": []
+  },
+  {
+    "code": "NBO",
+    "airportName": "Jomo Kenyatta International Airport",
+    "city": "Nairobi",
+    "country": "Kenya",
+    "countryCode": "KE",
+    "flagEmoji": "🇰🇪",
+    "airsideTransitAllowed": true,
+    "airsideSelfTransfer": false,
+    "maxAirsideHours": 24,
+    "transitVisaNeededForIndians": false,
+    "transitVisaType": "Kenya eTA needed to leave the airport",
+    "transitVisaCostInr": 2900,
+    "transitVisaCostUsd": 34,
+    "terminalChangeRequiresVisa": false,
+    "freeStopoverHotelAvailable": false,
+    "freeTourAvailable": false,
+    "keyAirlines": [
+      "Kenya Airways",
+      "IndiGo",
+      "Air India"
+    ],
+    "rulesSummary": "Airside transit on one ticket is fine. Self-transfers need the Kenya Electronic Travel Authorisation (eTA).",
+    "criticalWarnings": [
+      "eTA processing can take up to 3 working days."
+    ],
+    "stepByStepGuide": [
+      "Apply for the eTA online.",
+      "Clear immigration, collect bags, re-check at Departures."
+    ],
+    "officialPortalUrl": "https://www.etakenya.go.ke",
+    "lastVerifiedAt": null,
+    "transitVisaExemptWith": []
+  }
+]

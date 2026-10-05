@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { DESTINATIONS } from '@/lib/destinations-data';
+import { getAllDestinations } from '@/lib/db';
 import { resolveVisaRequirements } from '@/lib/visa-engine';
 import { UserVisaProfile } from '@/types/visa';
 
@@ -18,7 +18,9 @@ export async function GET(request: NextRequest) {
     hasUKVisa,
   };
 
-  let results = DESTINATIONS.map((country) => {
+  const destinationsList = await getAllDestinations();
+
+  let results = destinationsList.map((country) => {
     const resolved = resolveVisaRequirements(country, userProfile);
     return {
       country,

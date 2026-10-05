@@ -2,49 +2,79 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { Compass, ShieldCheck } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
+import { Logo } from '@/components/brand/logo';
+import { cn } from '@/lib/utils';
+
+const NAV = [
+  { href: '/', label: 'Fly' },
+  { href: '/visas', label: 'Visas' },
+  { href: '/transit-hubs', label: 'Transit hubs' },
+  { href: '/routes', label: 'Route ideas' },
+];
 
 export function Header() {
+  const pathname = usePathname();
+  const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => setOpen(false), [pathname]);
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' || pathname.startsWith('/plan') : pathname.startsWith(href) || (href === '/visas' && pathname.startsWith('/destination'));
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-zinc-200/80 dark:border-zinc-800/80 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand Logo & Editorial Title */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 flex items-center justify-center transition-transform group-hover:scale-105">
-            <Compass className="w-4 h-4" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-bold tracking-tight text-zinc-950 dark:text-white uppercase font-mono">
-              DesiVisa
-            </span>
-            <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono tracking-wider">
-              Indian Passport Metasearch
-            </span>
-          </div>
+    <header className="on-dark sticky top-0 z-40 bg-black text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-6">
+        <Link href="/" className="text-[30px] -mb-1.5" aria-label="jugo home">
+          <Logo />
         </Link>
 
-        {/* Passport Status Indicator & Nav */}
-        <div className="flex items-center gap-3">
-          <div className="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-300">
-            <ShieldCheck className="w-3.5 h-3.5 text-zinc-900 dark:text-zinc-100" />
-            <span>Holder: Republic of India (IND)</span>
-          </div>
+        <nav className="hidden md:flex items-center gap-1 mr-auto" aria-label="Main">
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              className={cn(
+                'px-3.5 h-9 inline-flex items-center rounded-full text-sm font-medium transition-colors',
+                isActive(item.href) ? 'bg-white text-black' : 'text-white hover:bg-white/15'
+              )}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-          <Link
-            href="/privacy"
-            className="text-xs font-medium text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white px-2 py-1 transition-colors"
-          >
-            Privacy
-          </Link>
+        <span className="hidden md:inline text-sm text-zinc-400">For Indian passports</span>
 
-          <Link
-            href="/terms"
-            className="text-xs font-medium text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white px-2 py-1 transition-colors"
-          >
-            Terms
-          </Link>
-        </div>
+        <button
+          type="button"
+          className="md:hidden -mr-2 p-2 rounded-full hover:bg-white/15"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          onClick={() => setOpen((o) => !o)}
+        >
+          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+
+      {open && (
+        <nav className="md:hidden border-t border-white/10 px-4 pb-6 pt-2" aria-label="Main">
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(
+                'block py-4 font-display text-2xl font-bold tracking-tight border-b border-white/10',
+                isActive(item.href) ? 'text-white' : 'text-zinc-400'
+              )}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

@@ -1,35 +1,29 @@
-import { MetadataRoute } from 'next';
-import { DESTINATIONS } from '@/lib/destinations-data';
+import type { MetadataRoute } from 'next';
+import { getAllDestinations } from '@/lib/db';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 3600;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://indianpassporttravel.com';
+  const destinations = await getAllDestinations();
+  const now = new Date();
 
-  const destinationRoutes = DESTINATIONS.map((country) => ({
-    url: `${baseUrl}/destination/${country.countryCode}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
+  const pages: [string, MetadataRoute.Sitemap[number]['changeFrequency'], number][] = [
+    ['', 'daily', 1.0],
+    ['/visas', 'weekly', 0.9],
+    ['/routes', 'weekly', 0.7],
+    ['/transit-hubs', 'weekly', 0.7],
+    ['/privacy', 'yearly', 0.2],
+    ['/terms', 'yearly', 0.2],
+  ];
 
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.3,
-    },
-    ...destinationRoutes,
+    ...pages.map(([path, changeFrequency, priority]) => ({ url: `${baseUrl}${path}`, lastModified: now, changeFrequency, priority })),
+    ...destinations.map((c) => ({
+      url: `${baseUrl}/destination/${c.countryCode}`,
+      lastModified: c.lastVerifiedAt ? new Date(c.lastVerifiedAt) : now,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })),
   ];
 }

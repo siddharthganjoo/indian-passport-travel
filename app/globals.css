@@ -1,52 +1,105 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: #ffffff;
-    --foreground: #09090b;
-    --muted: #71717a;
-    --border: #e4e4e7;
-  }
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #12b76a; /* jugo green — marks and fills only; use emerald-700 for green text */
+}
 
-  .dark {
-    --background: #09090b;
-    --foreground: #fafafa;
-    --muted: #a1a1aa;
-    --border: #27272a;
+:root {
+  /* Visa-ease ramp (validated ordinal, one hue): darker = easier entry on light. */
+  --ease-free: #064f33;
+  --ease-voa: #1f8a5d;
+  --ease-evisa: #5cbb90;
+  --ease-embassy: #d4d4d8;
+  --ease-none: #f4f4f5;
+  --map-stroke: #ffffff;
+  --map-home: #000000;
+
+  /* Cost-breakdown chart series (validated categorical palette). */
+  --series-fare: #2a78d6;
+  --series-bags: #eb6834;
+  --series-visa: #1baf7a;
+  --series-extra: #eda100;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Lighter = easier on a dark surface. */
+    --ease-free: #86e3b6;
+    --ease-voa: #2fae78;
+    --ease-evisa: #0e7048;
+    --ease-embassy: #3f3f46;
+    --ease-none: #1c1c1f;
+    --map-stroke: #0a0a0a;
+    --map-home: #ffffff;
+
+    --series-fare: #3987e5;
+    --series-bags: #d95926;
+    --series-visa: #199e70;
+    --series-extra: #c98500;
   }
 }
 
+/* Always-dark surfaces (header, hero) use the dark ramp regardless of OS theme. */
+.on-dark {
+  --ease-free: #86e3b6;
+  --ease-voa: #2fae78;
+  --ease-evisa: #0e7048;
+  --ease-embassy: #3f3f46;
+  --ease-none: #1c1c1f;
+  --map-stroke: #000000;
+  --map-home: #ffffff;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  background-color: var(--background);
-  color: var(--foreground);
   font-feature-settings: "rlig" 1, "calt" 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Accessible focus ring */
 *:focus-visible {
-  outline: 2px solid #09090b;
+  outline: 2px solid #000000;
   outline-offset: 2px;
+  border-radius: 6px;
+}
+.on-dark *:focus-visible {
+  outline-color: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  *:focus-visible {
+    outline-color: #ffffff;
+  }
 }
 
-.dark *:focus-visible {
-  outline: 2px solid #fafafa;
-  outline-offset: 2px;
+/* Hatched fill for options that aren't possible (e.g. visa can't be issued in time). */
+.hatch {
+  background-image: repeating-linear-gradient(135deg, currentColor 0 1px, transparent 1px 6px);
 }
 
-/* Custom subtle scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* Route arcs draw in on load (paths use pathLength="1"). */
+@keyframes draw-arc {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
-::-webkit-scrollbar-track {
-  background: transparent;
+.arc-draw {
+  stroke-dasharray: 1;
+  animation: draw-arc 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
-  border-radius: 9999px;
+@media (prefers-reduced-motion: reduce) {
+  .arc-draw {
+    animation: none;
+    stroke-dasharray: none;
+  }
 }
-.dark ::-webkit-scrollbar-thumb {
-  background: #27272a;
+
+input[type="date"] {
+  color-scheme: light dark;
 }
